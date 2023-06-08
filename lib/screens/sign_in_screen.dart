@@ -2,13 +2,13 @@ import 'package:decipher/componenets/auth_button.dart';
 import 'package:decipher/componenets/auth_text_fields.dart';
 import 'package:decipher/componenets/custom_rich_text.dart';
 import 'package:decipher/componenets/third_party_auth_button.dart';
-import 'package:decipher/screens/home_screen.dart';
-import 'package:decipher/screens/sign_in_screen.dart';
+import 'package:decipher/screens/sign_up_screen.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,19 +31,12 @@ class SignUpScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Text(
-              "Sign-up to Continue!",
+              "Sign-in to Continue!",
               style: Theme.of(context).textTheme.titleLarge,
               textAlign: TextAlign.center,
             ),
             const SizedBox(
               height: 32.0,
-            ),
-            const AuthTextField(
-              hint: "Username",
-              assetPath: "assets/images/username_icon.svg",
-            ),
-            const SizedBox(
-              height: 20.0,
             ),
             const AuthTextField(
               hint: "Email",
@@ -57,19 +50,29 @@ class SignUpScreen extends StatelessWidget {
               assetPath: "assets/images/key_icon.svg",
               obscureText: true,
             ),
+            const SizedBox(height: 8.0),
+            RichText(
+              textAlign: TextAlign.right,
+              text: TextSpan(
+                style: DefaultTextStyle.of(context).style,
+                children: <TextSpan>[
+                  TextSpan(
+                      text: "Forgot password?",
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16.0,
+                          ),
+                      recognizer: TapGestureRecognizer()..onTap = () {}),
+                ],
+              ),
+            ),
             const SizedBox(
               height: 54.0,
             ),
             AuthButton(
-              text: "Sign-up",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomeScreen(),
-                  ),
-                );
-              },
+              text: "Sign-in",
+              onPressed: () {},
             ),
             const SizedBox(
               height: 20.0,
@@ -131,13 +134,13 @@ class SignUpScreen extends StatelessWidget {
               height: 20.0,
             ),
             CustomRichText(
-                regularText: "Already have an account? ",
-                pressableText: "Log in",
+                regularText: "Don't have an account? ",
+                pressableText: "Sign up",
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SignInScreen(),
+                      builder: (context) => const SignUpScreen(),
                     ),
                   );
                 }),

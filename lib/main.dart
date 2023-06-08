@@ -46,15 +46,24 @@ class MyApp extends StatelessWidget {
                   color: Colors.black,
                 ),
           ),
+          labelLarge: GoogleFonts.poppins(
+              color: const Color(0xFFD3DAD9),
+              fontWeight: FontWeight.normal,
+              fontSize: 20.0),
           labelMedium: GoogleFonts.poppins(
             textStyle: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                  fontSize: 14.0
-                ),
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+                fontSize: 14.0),
           ),
+          labelSmall: GoogleFonts.poppins(
+              textStyle: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.normal,
+                  )),
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4A4A4A)),
+        primaryColor: const Color(0xFF4A4A4A),
         useMaterial3: true,
       ),
       home: const SignUpScreen(),

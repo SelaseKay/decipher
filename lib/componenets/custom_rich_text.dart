@@ -18,7 +18,6 @@ class CustomRichText extends StatelessWidget {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-
         style: DefaultTextStyle.of(context).style,
         children: <TextSpan>[
           TextSpan(
