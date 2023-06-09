@@ -1,5 +1,6 @@
 import 'package:decipher/componenets/career_path_item.dart';
 import 'package:decipher/componenets/category_item.dart';
+import 'package:decipher/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -125,30 +126,44 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: 124.0,
             width: double.infinity,
-            child: Stack(
-              children: [
-                //image placeholder
-                Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15.0),
-                    ),
-                    color: Colors.grey,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const WelcomeScreen(),
                   ),
-                ),
+                );
+              },
+              child: Stack(
+                children: [
+                  //image placeholder
+                  Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15.0),
+                      ),
+                      color: Colors.grey,
+                    ),
+                  ),
 
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "Welcome to Communication Design...",
-                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                          fontWeight: FontWeight.normal, color: Colors.black),
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        "Welcome to Communication Design...",
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelMedium
+                            ?.copyWith(
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 20.0),
