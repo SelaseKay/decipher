@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CareerPathItem extends StatelessWidget {
   const CareerPathItem({
@@ -76,11 +77,14 @@ class CareerPathItem extends StatelessWidget {
                         fontSize: 8.0,
                       ),
                 ),
-                const SizedBox(height: 4.0,),
+                const SizedBox(
+                  height: 4.0,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     InkWell(
+                      onTap: (){},
                       child: Row(
                         children: [
                           Text(
@@ -94,8 +98,14 @@ class CareerPathItem extends StatelessWidget {
                                   fontSize: 10.0,
                                 ),
                           ),
-                          const SizedBox(width: 8.0,),
-                          const Icon(Icons.arrow_forward),
+                          const SizedBox(
+                            width: 8.0,
+                          ),
+                          SvgPicture.asset(
+                            "assets/images/arrow_right_icon.svg",
+                            height: 12.0,
+                            width: 12.0,
+                          ),
                         ],
                       ),
                     )

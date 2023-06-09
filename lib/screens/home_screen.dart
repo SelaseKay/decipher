@@ -1,4 +1,5 @@
 import 'package:decipher/componenets/career_path_item.dart';
+import 'package:decipher/componenets/category_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -20,6 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final categoryItemSize = (screenWidth - 24) / 3;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -116,7 +120,108 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const SizedBox(
-            height: 20.0,
+            height: 16.0,
+          ),
+          SizedBox(
+            height: 124.0,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                //image placeholder
+                Container(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                    color: Colors.grey,
+                  ),
+                ),
+
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Welcome to Communication Design...",
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          fontWeight: FontWeight.normal, color: Colors.black),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20.0),
+          Text(
+            "Category",
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
+          const SizedBox(
+            height: 16.0,
+          ),
+          SizedBox(
+            height: categoryItemSize,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                CategoryItem(
+                  size: categoryItemSize,
+                  text: "Majors",
+                ),
+                const SizedBox(
+                  width: 14.0,
+                ),
+                CategoryItem(
+                  size: categoryItemSize,
+                  text: "Internship",
+                ),
+                const SizedBox(
+                  width: 14.0,
+                ),
+                CategoryItem(
+                  size: categoryItemSize,
+                  text: "Quiz",
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 16.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Career paths",
+                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    fontWeight: FontWeight.normal, color: Colors.black),
+              ),
+              InkWell(
+                child: Row(
+                  children: [
+                    SvgPicture.asset(
+                      "assets/images/arrow_right_icon.svg",
+                      height: 12.0,
+                      width: 12.0,
+                    ),
+                    const SizedBox(
+                      width: 4.0,
+                    ),
+                    Text(
+                      "Explore all",
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                            fontSize: 12.0,
+                          ),
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
           const Row(
             children: [
