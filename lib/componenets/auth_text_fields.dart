@@ -19,7 +19,7 @@ class AuthTextField extends StatelessWidget {
       height: 40.0,
       child: TextFormField(
         style: const TextStyle(
-          color: Colors.white,
+          color: Colors.black,
         ),
         obscureText: obscureText,
         cursorColor: Colors.black,
@@ -46,15 +46,16 @@ class AuthTextField extends StatelessWidget {
             ),
             child: SvgPicture.asset(
               assetPath,
-              theme: SvgTheme(
-                currentColor: Theme.of(context).primaryColor,
+              colorFilter: ColorFilter.mode(
+                Theme.of(context).primaryColor,
+                BlendMode.srcIn,
               ),
             ),
           ),
           fillColor: Colors.white,
           filled: true,
           hintText: hint,
-          hintStyle:  TextStyle(
+          hintStyle: TextStyle(
             color: Theme.of(context).primaryColor.withOpacity(0.74),
           ),
           contentPadding: const EdgeInsets.symmetric(

@@ -5,21 +5,23 @@ class CategoryItem extends StatelessWidget {
     super.key,
     required this.size,
     required this.text,
+    required this.color,
   });
 
   final double size;
   final String text;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: size,
       width: size,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(
+      decoration:  BoxDecoration(
+        borderRadius: const BorderRadius.all(
           Radius.circular(10.0),
         ),
-        color: Color(0xFFD9D9D9),
+        color: color,
       ),
       child: Center(
         child: Text(
@@ -27,7 +29,7 @@ class CategoryItem extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .labelMedium
-              ?.copyWith(fontWeight: FontWeight.normal, color: Colors.black),
+              ?.copyWith(fontWeight: FontWeight.normal, color: Colors.white),
         ),
       ),
     );

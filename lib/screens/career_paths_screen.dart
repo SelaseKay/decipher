@@ -12,6 +12,7 @@ class CareerPathsScreen extends StatelessWidget {
     final pathwayItemSize = (screenWidth - 24) / 3;
 
     return Scaffold(
+      backgroundColor: const Color(0xFFECF4FF),
       appBar: AppBar(
         centerTitle: true,
         title: Text(
@@ -44,21 +45,25 @@ class CareerPathsScreen extends StatelessWidget {
               horizontal: 32.0,
               vertical: 16.0,
             ),
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
                 Radius.circular(10.0),
               ),
-              color: Theme.of(context).cardColor,
+              color: Colors.white,
             ),
             child: Row(children: [
               Container(
                 height: 80.0,
                 width: 80.0,
+                clipBehavior: Clip.hardEdge,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(
                     Radius.circular(10.0),
                   ),
-                  color: Colors.black,
+                ),
+                child: Image.asset(
+                  "assets/images/trending_img.png",
+                  fit: BoxFit.cover,
                 ),
               ),
               const SizedBox(
@@ -79,7 +84,7 @@ class CareerPathsScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.labelMedium?.copyWith(
                           fontWeight: FontWeight.w500,
                           fontSize: 16.0,
-                          color: const Color(0xFF353535).withOpacity(0.7),
+                          color: const Color(0xFFF9A826),
                         ),
                   )
                 ],
@@ -108,13 +113,17 @@ class CareerPathsScreen extends StatelessWidget {
                 PathwayItem(
                   size: pathwayItemSize,
                   text: "Visual com",
+                  assetPath: "assets/images/pathway_img1.png",
+                  cardColor: const Color(0xFF6C63FF),
                 ),
                 const SizedBox(
                   width: 12.0,
                 ),
                 PathwayItem(
                   size: pathwayItemSize,
-                  text: "Ad & Media",
+                  text: "Ads & Media",
+                  assetPath: "assets/images/pathway_img2.png",
+                  cardColor: const Color(0xFFF9A826),
                 ),
                 const SizedBox(
                   width: 12.0,
@@ -122,6 +131,8 @@ class CareerPathsScreen extends StatelessWidget {
                 PathwayItem(
                   size: pathwayItemSize,
                   text: "Multimedia",
+                  assetPath: "assets/images/pathway_img3.png",
+                  cardColor: const Color(0xFF00BFA6),
                 ),
               ],
             ),
@@ -137,32 +148,36 @@ class CareerPathsScreen extends StatelessWidget {
                   color: Colors.black,
                 ),
           ),
-          const SizedBox(height: 10.0,),
+          const SizedBox(
+            height: 10.0,
+          ),
           SizedBox(
             height: 140.0,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: const [
-                 IndustryPlayersItem(
+                IndustryPlayersItem(
                   text: "Artdemigod",
+                  assetPath: "assets/images/industry_player1.png",
                 ),
-                 SizedBox(
+                SizedBox(
                   width: 16.0,
                 ),
                 IndustryPlayersItem(
                   text: "Datartgod",
+                  assetPath: "assets/images/industry_player2.png",
                 ),
-                 SizedBox(
+                SizedBox(
                   width: 16.0,
                 ),
-                 IndustryPlayersItem(
+                IndustryPlayersItem(
                   text: "Elcarna",
+                  assetPath: "assets/images/industry_player3.png",
                 ),
               ],
             ),
           ),
         ],
-
       ),
     );
   }

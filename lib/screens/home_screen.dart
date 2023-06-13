@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         centerTitle: true,
         leading: SvgPicture.asset(
-          "assets/images/brand_icon.svg",
+          "assets/images/logo.svg",
           height: 60.0,
           width: 60.0,
         ),
@@ -104,26 +104,41 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   //image placeholder
                   Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    clipBehavior: Clip.hardEdge,
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(
                         Radius.circular(15.0),
                       ),
                       color: Colors.grey,
                     ),
+                    child: Image.asset(
+                      "assets/images/welcome_img.png",
+                      fit: BoxFit.cover,
+                    ),
                   ),
-
                   Align(
-                    alignment: Alignment.topCenter,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        "Welcome to Communication Design...",
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelMedium
-                            ?.copyWith(
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black),
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: const Color(0xFF413F3F).withOpacity(0.62),
+                          borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(15.0),
+                            bottomRight: Radius.circular(15.0),
+                          )),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Welcome to Communication Design...",
+                          textAlign: TextAlign.center,
+                          style:
+                              Theme.of(context).textTheme.labelMedium?.copyWith(
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white,
+                                  ),
+                        ),
                       ),
                     ),
                   ),
@@ -149,6 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 CategoryItem(
                   size: categoryItemSize,
+                  color: const Color(0xFF6C63FF),
                   text: "Majors",
                 ),
                 const SizedBox(
@@ -156,6 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 CategoryItem(
                   size: categoryItemSize,
+                  color: const Color(0xFFF9A826),
                   text: "Internship",
                 ),
                 const SizedBox(
@@ -163,7 +180,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 CategoryItem(
                   size: categoryItemSize,
-                  text: "Quiz",
+                  color: const Color(0xFF00BFA6),
+                  text: "Career Path",
                 ),
               ],
             ),
@@ -208,6 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                   child: CareerPathItem(
                 title: "Graphic Design",
+                assetPath: "assets/images/career_path_img1.png",
                 description:
                     "Graphic design is a craft where professionals create visual content to communicate messages.",
                 onTap: () {
@@ -225,6 +244,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                   child: CareerPathItem(
                 title: "Web Design",
+                assetPath: "assets/images/career_path_img2.png",
                 description:
                     "Graphic design is a craft where professionals create visual content to communicate messages.",
                 onTap: () {
@@ -242,7 +262,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: const Color(0xFFF3F3F3),
         unselectedItemColor: const Color(0xFFB8B8B8),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -271,8 +291,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
-        selectedIconTheme: const IconThemeData(color: Colors.white),
+        selectedItemColor: Theme.of(context).primaryColor,
+        selectedIconTheme: IconThemeData(
+          color: Theme.of(context).primaryColor,
+        ),
         onTap: _onItemTapped,
       ),
     );

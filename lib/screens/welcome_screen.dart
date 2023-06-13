@@ -23,10 +23,13 @@ class WelcomeScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Container(
+          SizedBox(
             height: imageHeight,
             width: double.infinity,
-            color: Colors.grey,
+            child: Image.asset(
+              "assets/images/welcome_screen_img.png",
+              fit: BoxFit.cover,
+            ),
           ),
           const SizedBox(
             height: 12.0,
@@ -40,7 +43,7 @@ class WelcomeScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Theme.of(context).primaryColor,
                   ),
             ),
           ),

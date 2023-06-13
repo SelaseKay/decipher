@@ -5,10 +5,14 @@ class PathwayItem extends StatelessWidget {
     super.key,
     required this.size,
     required this.text,
+    required this.cardColor,
+    required this.assetPath,
   });
 
   final double size;
   final String text;
+  final Color cardColor;
+  final String assetPath;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,10 @@ class PathwayItem extends StatelessWidget {
             borderRadius: const BorderRadius.all(
               Radius.circular(10.0),
             ),
-            color: Theme.of(context).cardColor,
+            color: cardColor,
+          ),
+          child: Center(
+            child: Image.asset(assetPath),
           ),
         ),
         Text(
@@ -35,7 +42,6 @@ class PathwayItem extends StatelessWidget {
         const SizedBox(
           height: 10.0,
         ),
-        
       ],
     );
   }

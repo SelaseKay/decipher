@@ -7,11 +7,13 @@ class CareerPathItem extends StatelessWidget {
     required this.title,
     required this.description,
     required this.onTap,
+    required this.assetPath,
   });
 
   final String title;
   final String description;
   final VoidCallback onTap;
+  final String assetPath;
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +27,16 @@ class CareerPathItem extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
+                  width: double.infinity,
                   decoration: const BoxDecoration(
-                    color: Colors.black,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10.0),
                       topRight: Radius.circular(10.0),
                     ),
+                  ),
+                  child: Image.asset(
+                    assetPath,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Container(
@@ -52,7 +58,7 @@ class CareerPathItem extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.all(8.0),
             decoration: const BoxDecoration(
-              color: Color(0xFFD9D9D9),
+              color: Colors.white,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(10.0),
                 bottomRight: Radius.circular(10.0),

@@ -34,12 +34,16 @@ class SearchTextField extends StatelessWidget {
               color: Colors.transparent,
             ),
           ),
-          prefixIcon: const Padding(
-              padding: EdgeInsetsDirectional.only(
-                start: 22.0,
-                end: 8.0,
-              ),
-              child: Icon(Icons.search)),
+          prefixIcon: Padding(
+            padding: const EdgeInsetsDirectional.only(
+              start: 22.0,
+              end: 8.0,
+            ),
+            child: Icon(
+              Icons.search,
+              color: Theme.of(context).primaryColor,
+            ),
+          ),
           fillColor: Colors.white,
           filled: true,
           hintText: hint,

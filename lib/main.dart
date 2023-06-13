@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
                 ),
           ),
           labelLarge: GoogleFonts.poppins(
-              color: const Color(0xFFD3DAD9),
+              color: Colors.white,
               fontWeight: FontWeight.normal,
               fontSize: 20.0),
           labelMedium: GoogleFonts.poppins(
