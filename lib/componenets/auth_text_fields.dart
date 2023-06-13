@@ -22,7 +22,7 @@ class AuthTextField extends StatelessWidget {
           color: Colors.white,
         ),
         obscureText: obscureText,
-        cursorColor: Colors.grey,
+        cursorColor: Colors.black,
         decoration: InputDecoration(
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10.0),
@@ -46,13 +46,16 @@ class AuthTextField extends StatelessWidget {
             ),
             child: SvgPicture.asset(
               assetPath,
+              theme: SvgTheme(
+                currentColor: Theme.of(context).primaryColor,
+              ),
             ),
           ),
-          fillColor: const Color(0xFF5F5F5F),
+          fillColor: Colors.white,
           filled: true,
           hintText: hint,
-          hintStyle: const TextStyle(
-            color: Color(0xFFB8B8B8),
+          hintStyle:  TextStyle(
+            color: Theme.of(context).primaryColor.withOpacity(0.74),
           ),
           contentPadding: const EdgeInsets.symmetric(
             vertical: 8.0,

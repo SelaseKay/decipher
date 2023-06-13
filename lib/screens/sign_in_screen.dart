@@ -13,6 +13,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 32.0),
@@ -21,18 +22,22 @@ class SignInScreen extends StatelessWidget {
               height: 130.0,
             ),
             SvgPicture.asset(
-              "assets/images/logo.svg",
+              "assets/images/brand_icon.svg",
               height: 80.0,
               width: 80.0,
             ),
             Text(
               "Welcome",
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    color: Colors.white,
+                  ),
               textAlign: TextAlign.center,
             ),
             Text(
               "Sign-in to Continue!",
-              style: Theme.of(context).textTheme.titleLarge,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(
@@ -59,7 +64,7 @@ class SignInScreen extends StatelessWidget {
                   TextSpan(
                       text: "Forgot password?",
                       style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                            color: Colors.black,
+                            color: Theme.of(context).colorScheme.secondary,
                             fontWeight: FontWeight.w400,
                             fontSize: 16.0,
                           ),
@@ -83,7 +88,7 @@ class SignInScreen extends StatelessWidget {
                 Expanded(
                   child: Container(
                     height: 1.0,
-                    color: const Color(0xFF5F5F5F),
+                     color: Colors.white,
                   ),
                 ),
                 const SizedBox(
@@ -92,7 +97,7 @@ class SignInScreen extends StatelessWidget {
                 Text(
                   "or",
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        color: const Color(0xFF696969),
+                        color: Colors.white,
                       ),
                 ),
                 const SizedBox(
@@ -101,7 +106,7 @@ class SignInScreen extends StatelessWidget {
                 Expanded(
                   child: Container(
                     height: 1.0,
-                    color: const Color(0xFF5F5F5F),
+                     color: Colors.white,
                   ),
                 ),
               ],

@@ -14,7 +14,7 @@ class AuthButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        backgroundColor: const Color(0xFF212121),
+        backgroundColor: Theme.of(context).colorScheme.secondary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

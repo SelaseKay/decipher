@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final categoryItemSize = (screenWidth - 24) / 3;
 
     return Scaffold(
+      backgroundColor: const Color(0xFfECF4FF),
       appBar: AppBar(
         centerTitle: true,
         leading: SvgPicture.asset(
@@ -64,6 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 "Welcome back,",
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontSize: 24.0,
+                      color: Theme.of(context).primaryColor,
                       fontWeight: FontWeight.w400,
                     ),
               ),
@@ -72,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
               ),
             ],

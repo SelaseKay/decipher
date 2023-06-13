@@ -17,7 +17,7 @@ class SearchTextField extends StatelessWidget {
               color: const Color(0xFF292929),
               fontWeight: FontWeight.normal,
             ),
-        cursorColor: Colors.grey,
+        cursorColor: Colors.black,
         decoration: InputDecoration(
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(32.0),
@@ -40,7 +40,7 @@ class SearchTextField extends StatelessWidget {
                 end: 8.0,
               ),
               child: Icon(Icons.search)),
-          fillColor: const Color(0xFFD9D9D9),
+          fillColor: Colors.white,
           filled: true,
           hintText: hint,
           hintStyle: Theme.of(context).textTheme.labelMedium?.copyWith(

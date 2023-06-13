@@ -23,7 +23,7 @@ class CustomRichText extends StatelessWidget {
           TextSpan(
             text: regularText,
             style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                  color: const Color(0xFF575757),
+                  color: Colors.white,
                   fontWeight: FontWeight.normal,
                   fontSize: 16.0,
                 ),
@@ -31,7 +31,7 @@ class CustomRichText extends StatelessWidget {
           TextSpan(
               text: pressableText,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.secondary,
                     fontWeight: FontWeight.bold,
                     fontSize: 16.0,
                   ),

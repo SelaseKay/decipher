@@ -62,8 +62,10 @@ class MyApp extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                   )),
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4A4A4A)),
-        primaryColor: const Color(0xFF4A4A4A),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color(0xFF0E336A),
+            secondary: const Color(0xFFE57225)),
+        primaryColor: const Color(0xFF0E336A),
         cardColor: const Color(0XFFD9D9D9),
         useMaterial3: true,
       ),
