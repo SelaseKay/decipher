@@ -64,6 +64,7 @@ class MyApp extends StatelessWidget {
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4A4A4A)),
         primaryColor: const Color(0xFF4A4A4A),
+        cardColor: const Color(0XFFD9D9D9),
         useMaterial3: true,
       ),
       home: const SignUpScreen(),

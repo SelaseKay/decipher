@@ -6,10 +6,12 @@ class CareerPathItem extends StatelessWidget {
     super.key,
     required this.title,
     required this.description,
+    required this.onTap,
   });
 
   final String title;
   final String description;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +86,7 @@ class CareerPathItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     InkWell(
-                      onTap: (){},
+                      onTap: onTap,
                       child: Row(
                         children: [
                           Text(
