@@ -21,6 +21,7 @@ class CareerPathItem extends StatelessWidget {
       decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10.0))),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
           SizedBox(
             height: 82.0,
@@ -28,6 +29,7 @@ class CareerPathItem extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
+                  clipBehavior: Clip.hardEdge,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10.0),
@@ -54,72 +56,82 @@ class CareerPathItem extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(8.0),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(10.0),
-                bottomRight: Radius.circular(10.0),
+          Flexible(
+            fit: FlexFit.loose,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(8.0),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10.0),
+                  bottomRight: Radius.circular(10.0),
+                ),
               ),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        color: Colors.black,
-                        fontSize: 12.0,
-                      ),
-                ),
-                const SizedBox(
-                  height: 4.0,
-                ),
-                Text(
-                  description,
-                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w100,
-                        fontSize: 8.0,
-                      ),
-                ),
-                const SizedBox(
-                  height: 4.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      onTap: onTap,
-                      child: Row(
-                        children: [
-                          Text(
-                            "Read more",
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelMedium
-                                ?.copyWith(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w100,
-                                  fontSize: 10.0,
-                                ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Flexible(
+                     fit: FlexFit.loose,
+                    child: Text(
+                      title,
+                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            color: Colors.black,
+                            fontSize: 12.0,
                           ),
-                          const SizedBox(
-                            width: 8.0,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  Text(
+                    description,
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w100,
+                          fontSize: 8.0,
+                        ),
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  Flexible(
+                    fit: FlexFit.loose,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        InkWell(
+                          onTap: onTap,
+                          child: Row(
+                            children: [
+                              Text(
+                                "Read more",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelMedium
+                                    ?.copyWith(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w100,
+                                      fontSize: 10.0,
+                                    ),
+                              ),
+                              const SizedBox(
+                                width: 8.0,
+                              ),
+                              SvgPicture.asset(
+                                "assets/images/arrow_right_icon.svg",
+                                height: 12.0,
+                                width: 12.0,
+                              ),
+                            ],
                           ),
-                          SvgPicture.asset(
-                            "assets/images/arrow_right_icon.svg",
-                            height: 12.0,
-                            width: 12.0,
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                )
-              ],
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ],

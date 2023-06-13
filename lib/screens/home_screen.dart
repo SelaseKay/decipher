@@ -1,6 +1,7 @@
 import 'package:decipher/componenets/career_path_item.dart';
 import 'package:decipher/componenets/category_item.dart';
 import 'package:decipher/componenets/search_text_field.dart';
+import 'package:decipher/screens/career_paths_explore_screenn.dart';
 import 'package:decipher/screens/career_paths_screen.dart';
 import 'package:decipher/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -198,6 +199,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontWeight: FontWeight.normal, color: Colors.black),
               ),
               InkWell(
+                onTap: (){
+                   Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CareerPathsExploreScreen(),
+                  ),
+                );
+                },
                 child: Row(
                   children: [
                     SvgPicture.asset(

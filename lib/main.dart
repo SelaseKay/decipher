@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
           labelMedium: GoogleFonts.poppins(
             textStyle: Theme.of(context).textTheme.headlineMedium?.copyWith(
                 fontWeight: FontWeight.w500,
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
                 fontSize: 14.0),
           ),
           labelSmall: GoogleFonts.poppins(
