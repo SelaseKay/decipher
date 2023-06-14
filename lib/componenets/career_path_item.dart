@@ -56,36 +56,34 @@ class CareerPathItem extends StatelessWidget {
               ],
             ),
           ),
-          Flexible(
-            fit: FlexFit.loose,
-            child: Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(8.0),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(10.0),
-                  bottomRight: Radius.circular(10.0),
-                ),
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(8.0),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(10.0),
+                bottomRight: Radius.circular(10.0),
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Flexible(
-                     fit: FlexFit.loose,
-                    child: Text(
-                      title,
-                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                            color: Colors.black,
-                            fontSize: 12.0,
-                          ),
-                    ),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Flexible(
+                  child: Text(
+                    title,
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          color: Colors.black,
+                          fontSize: 12.0,
+                        ),
                   ),
-                  const SizedBox(
-                    height: 4.0,
-                  ),
-                  Text(
+                ),
+                const SizedBox(
+                  height: 4.0,
+                ),
+                Flexible(
+                  child: Text(
                     description,
                     style: Theme.of(context).textTheme.labelMedium?.copyWith(
                           color: Colors.black,
@@ -93,45 +91,45 @@ class CareerPathItem extends StatelessWidget {
                           fontSize: 8.0,
                         ),
                   ),
-                  const SizedBox(
-                    height: 4.0,
+                ),
+                const SizedBox(
+                  height: 4.0,
+                ),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                        onTap: onTap,
+                        child: Row(
+                          children: [
+                            Text(
+                              "Read more",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium
+                                  ?.copyWith(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w100,
+                                    fontSize: 10.0,
+                                  ),
+                            ),
+                            const SizedBox(
+                              width: 8.0,
+                            ),
+                            SvgPicture.asset(
+                              "assets/images/arrow_right_icon.svg",
+                              height: 12.0,
+                              width: 12.0,
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
                   ),
-                  Flexible(
-                    fit: FlexFit.loose,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        InkWell(
-                          onTap: onTap,
-                          child: Row(
-                            children: [
-                              Text(
-                                "Read more",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .labelMedium
-                                    ?.copyWith(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w100,
-                                      fontSize: 10.0,
-                                    ),
-                              ),
-                              const SizedBox(
-                                width: 8.0,
-                              ),
-                              SvgPicture.asset(
-                                "assets/images/arrow_right_icon.svg",
-                                height: 12.0,
-                                width: 12.0,
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
           ),
         ],

@@ -32,7 +32,7 @@ class CareerPathsExploreScreen extends StatelessWidget {
         elevation: 0.0,
       ),
       body: Padding(
-         padding: const EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 16.0,
           vertical: 24.0,
         ),
@@ -49,9 +49,7 @@ class CareerPathsExploreScreen extends StatelessWidget {
               "Career in Visual Communication",
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    fontSize: 16.0,
-                    color: Theme.of(context).primaryColor
-                  ),
+                  fontSize: 16.0, color: Theme.of(context).primaryColor),
             ),
             const SizedBox(
               height: 24.0,
@@ -60,15 +58,16 @@ class CareerPathsExploreScreen extends StatelessWidget {
               child: GridView.count(
                 // Create a grid with 2 columns. If you change the scrollDirection to
                 // horizontal, this produces 2 rows.
+                padding: const EdgeInsets.only(bottom: 16.0),
                 crossAxisCount: 2,
-               mainAxisSpacing: 12.0,
-                crossAxisSpacing: 20.0,    
+                mainAxisSpacing: 12.0,
+                crossAxisSpacing: 20.0,
                 // Generate 100 widgets that display their index in the List.
                 children: List.generate(8, (index) {
                   return CareerPathItem(
                     title: careers[index].title,
                     description:
-                        "Graphic design is a craft where professionals create visual content to communicate messages.",
+                        "Graphic design is a craft where professionals create...",
                     onTap: () {},
                     assetPath: careers[index].assetPath,
                   );

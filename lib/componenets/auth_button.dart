@@ -22,7 +22,9 @@ class AuthButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: Theme.of(context).textTheme.labelMedium,
+        style: Theme.of(context).textTheme.labelMedium?.copyWith(
+          color: Colors.white
+        ),
       ),
     );
   }
