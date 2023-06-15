@@ -6,11 +6,13 @@ class CategoryItem extends StatelessWidget {
     required this.size,
     required this.text,
     required this.color,
+    required this.onTap,
   });
 
   final double size;
   final String text;
   final Color color;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +25,16 @@ class CategoryItem extends StatelessWidget {
         ),
         color: color,
       ),
-      child: Center(
-        child: Text(
-          text,
-          style: Theme.of(context)
-              .textTheme
-              .labelMedium
-              ?.copyWith(fontWeight: FontWeight.normal, color: Colors.white),
+      child: InkWell(
+        onTap: onTap,
+        child: Center(
+          child: Text(
+            text,
+            style: Theme.of(context)
+                .textTheme
+                .labelMedium
+                ?.copyWith(fontWeight: FontWeight.normal, color: Colors.white),
+          ),
         ),
       ),
     );

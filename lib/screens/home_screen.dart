@@ -15,297 +15,239 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-
-  _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final categoryItemSize = (screenWidth - 24) / 3;
 
-    return Scaffold(
-      backgroundColor: const Color(0xFfECF4FF),
-      appBar: AppBar(
-        centerTitle: true,
-        leading: SvgPicture.asset(
-          "assets/images/logo.svg",
-          height: 60.0,
-          width: 60.0,
-        ),
-        actions: [
-          SvgPicture.asset(
-            "assets/images/alarm_icon.svg",
-            height: 24.0,
-            width: 24.0,
-          ),
-          const SizedBox(
-            width: 16.0,
-          )
-        ],
-        backgroundColor: Theme.of(context).primaryColor,
-        title: Text(
-          "Home",
-          style: Theme.of(context).textTheme.labelLarge,
-        ),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        children: [
-          const SizedBox(
-            height: 16.0,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Welcome back,",
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontSize: 24.0,
-                      color: Theme.of(context).primaryColor,
-                      fontWeight: FontWeight.w400,
-                    ),
-              ),
-              Text(
-                "Jennifer!",
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.secondary,
-                    ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 16.0,
-          ),
-          const SearchTextField(
-            hint: "Search",
-          ),
-          const SizedBox(
-            height: 16.0,
-          ),
-          SizedBox(
-            height: 124.0,
-            width: double.infinity,
-            child: InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const WelcomeScreen(),
-                  ),
-                );
-              },
-              child: Stack(
-                children: [
-                  //image placeholder
-                  Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    clipBehavior: Clip.hardEdge,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(15.0),
+    return Material(
+      child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          children: [
+            const SizedBox(
+              height: 16.0,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Welcome back,",
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        fontSize: 24.0,
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.w400,
                       ),
-                      color: Colors.grey,
+                ),
+                Text(
+                  "Jennifer!",
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 16.0,
+            ),
+            const SearchTextField(
+              hint: "Search",
+            ),
+            const SizedBox(
+              height: 16.0,
+            ),
+            SizedBox(
+              height: 124.0,
+              width: double.infinity,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const WelcomeScreen(),
                     ),
-                    child: Image.asset(
-                      "assets/images/welcome_img.png",
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
+                  );
+                },
+                child: Stack(
+                  children: [
+                    //image placeholder
+                    Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: const Color(0xFF413F3F).withOpacity(0.62),
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(15.0),
-                            bottomRight: Radius.circular(15.0),
-                          )),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          "Welcome to Communication Design...",
-                          textAlign: TextAlign.center,
-                          style:
-                              Theme.of(context).textTheme.labelMedium?.copyWith(
-                                    fontWeight: FontWeight.normal,
-                                    color: Colors.white,
-                                  ),
+                      height: double.infinity,
+                      clipBehavior: Clip.hardEdge,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15.0),
+                        ),
+                        color: Colors.grey,
+                      ),
+                      child: Image.asset(
+                        "assets/images/welcome_img.png",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: const Color(0xFF413F3F).withOpacity(0.62),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(15.0),
+                              bottomRight: Radius.circular(15.0),
+                            )),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "Welcome to Communication Design...",
+                            textAlign: TextAlign.center,
+                            style:
+                                Theme.of(context).textTheme.labelMedium?.copyWith(
+                                      fontWeight: FontWeight.normal,
+                                      color: Colors.white,
+                                    ),
+                          ),
                         ),
                       ),
                     ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 20.0),
+            Text(
+              "Category",
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
+            ),
+            const SizedBox(
+              height: 16.0,
+            ),
+            SizedBox(
+              height: categoryItemSize,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  CategoryItem(
+                    size: categoryItemSize,
+                    color: const Color(0xFF6C63FF),
+                    onTap: () {},
+                    text: "Majors",
+                  ),
+                  const SizedBox(
+                    width: 14.0,
+                  ),
+                  CategoryItem(
+                    size: categoryItemSize,
+                    color: const Color(0xFFF9A826),
+                    onTap: () {},
+                    text: "Internship",
+                  ),
+                  const SizedBox(
+                    width: 14.0,
+                  ),
+                  CategoryItem(
+                    size: categoryItemSize,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CareerPathsScreen(),
+                        ),
+                      );
+                    },
+                    color: const Color(0xFF00BFA6),
+                    text: "Career Path",
                   ),
                 ],
               ),
             ),
-          ),
-          const SizedBox(height: 20.0),
-          Text(
-            "Category",
-            style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
-                ),
-          ),
-          const SizedBox(
-            height: 16.0,
-          ),
-          SizedBox(
-            height: categoryItemSize,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
+            const SizedBox(
+              height: 16.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CategoryItem(
-                  size: categoryItemSize,
-                  color: const Color(0xFF6C63FF),
-                  text: "Majors",
+                Text(
+                  "Career paths",
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      fontWeight: FontWeight.normal, color: Colors.black),
                 ),
-                const SizedBox(
-                  width: 14.0,
-                ),
-                CategoryItem(
-                  size: categoryItemSize,
-                  color: const Color(0xFFF9A826),
-                  text: "Internship",
-                ),
-                const SizedBox(
-                  width: 14.0,
-                ),
-                CategoryItem(
-                  size: categoryItemSize,
-                  color: const Color(0xFF00BFA6),
-                  text: "Career Path",
-                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CareerPathsExploreScreen(),
+                      ),
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        "assets/images/arrow_right_icon.svg",
+                        height: 12.0,
+                        width: 12.0,
+                      ),
+                      const SizedBox(
+                        width: 4.0,
+                      ),
+                      Text(
+                        "Explore all",
+                        style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black,
+                              fontSize: 12.0,
+                            ),
+                      )
+                    ],
+                  ),
+                )
               ],
             ),
-          ),
-          const SizedBox(
-            height: 16.0,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Career paths",
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    fontWeight: FontWeight.normal, color: Colors.black),
-              ),
-              InkWell(
-                onTap: (){
-                   Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CareerPathsExploreScreen(),
-                  ),
-                );
-                },
-                child: Row(
-                  children: [
-                    SvgPicture.asset(
-                      "assets/images/arrow_right_icon.svg",
-                      height: 12.0,
-                      width: 12.0,
-                    ),
-                    const SizedBox(
-                      width: 4.0,
-                    ),
-                    Text(
-                      "Explore all",
-                      style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black,
-                            fontSize: 12.0,
-                          ),
-                    )
-                  ],
+            Row(
+              children: [
+                Expanded(
+                    child: CareerPathItem(
+                  title: "Graphic Design",
+                  assetPath: "assets/images/career_path_img1.png",
+                  description:
+                      "Graphic design is a craft where professionals create visual content to communicate messages.",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CareerPathsScreen(),
+                      ),
+                    );
+                  },
+                )),
+                const SizedBox(
+                  width: 20.0,
                 ),
-              )
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                  child: CareerPathItem(
-                title: "Graphic Design",
-                assetPath: "assets/images/career_path_img1.png",
-                description:
-                    "Graphic design is a craft where professionals create visual content to communicate messages.",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const CareerPathsScreen(),
-                    ),
-                  );
-                },
-              )),
-              const SizedBox(
-                width: 20.0,
-              ),
-              Expanded(
-                  child: CareerPathItem(
-                title: "Web Design",
-                assetPath: "assets/images/career_path_img2.png",
-                description:
-                    "Graphic design is a craft where professionals create visual content to communicate messages.",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const CareerPathsScreen(),
-                    ),
-                  );
-                },
-              )),
-            ],
-          )
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: const Color(0xFFF3F3F3),
-        unselectedItemColor: const Color(0xFFB8B8B8),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.newspaper,
-            ),
-            label: 'News',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.bookmark,
-            ),
-            label: 'Task',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_rounded,
-            ),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Theme.of(context).primaryColor,
-        selectedIconTheme: IconThemeData(
-          color: Theme.of(context).primaryColor,
+                Expanded(
+                    child: CareerPathItem(
+                  title: "Web Design",
+                  assetPath: "assets/images/career_path_img2.png",
+                  description:
+                      "Graphic design is a craft where professionals create visual content to communicate messages.",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CareerPathsScreen(),
+                      ),
+                    );
+                  },
+                )),
+              ],
+            )
+          ],
         ),
-        onTap: _onItemTapped,
-      ),
     );
   }
 }

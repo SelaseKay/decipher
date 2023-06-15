@@ -3,6 +3,7 @@ import 'package:decipher/componenets/auth_text_fields.dart';
 import 'package:decipher/componenets/custom_rich_text.dart';
 import 'package:decipher/componenets/third_party_auth_button.dart';
 import 'package:decipher/screens/home_screen.dart';
+import 'package:decipher/screens/main_container.dart';
 import 'package:decipher/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -71,7 +72,7 @@ class SignUpScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const HomeScreen(),
+                    builder: (context) => const MainContainer(),
                   ),
                 );
               },
