@@ -1,3 +1,5 @@
+import 'package:decipher/model/news_item.dart';
+
 import 'model/career.dart';
 
 List<Career> careers = const [
@@ -32,5 +34,23 @@ List<Career> careers = const [
   Career(
     title: "Photographer",
     assetPath: "assets/images/career_path_img8.png",
+  ),
+];
+
+const List<NewsItem> newsItems = [
+  NewsItem(
+    img: "assets/images/news_img1.png",
+  ),
+  NewsItem(
+    img: "assets/images/news_img2.png",
+  ),
+  NewsItem(
+    img: "assets/images/news_img3.png",
+  ),
+  NewsItem(
+    img: "assets/images/news_img4.png",
+  ),
+  NewsItem(
+    img: "assets/images/news_img5.png",
   ),
 ];

@@ -1,6 +1,6 @@
 import 'package:decipher/componenets/career_path_item.dart';
 import 'package:decipher/componenets/search_text_field.dart';
-import 'package:decipher/constants.dart';
+import 'package:decipher/dummy_data.dart';
 import 'package:flutter/material.dart';
 
 class CareerPathsExploreScreen extends StatelessWidget {

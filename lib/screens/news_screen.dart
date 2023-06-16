@@ -1,3 +1,5 @@
+import 'package:decipher/componenets/news_item_container.dart';
+import 'package:decipher/dummy_data.dart';
 import 'package:flutter/material.dart';
 
 class NewsScreen extends StatelessWidget {
@@ -56,7 +58,22 @@ class NewsScreen extends StatelessWidget {
         const SizedBox(
           height: 8.0,
         ),
-        Expanded(child: ListView())
+        Expanded(
+            child: ListView.builder(
+          itemCount: newsItems.length,
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: NewsItemContainer(
+                assetPath: newsItems[index].img,
+                details: newsItems[index].details,
+                author: newsItems[index].author,
+                onTap: () {},
+              ),
+            );
+          },
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        ))
       ],
     );
   }
