@@ -1,6 +1,7 @@
 import 'package:decipher/componenets/career_path_item.dart';
 import 'package:decipher/componenets/search_text_field.dart';
 import 'package:decipher/dummy_data.dart';
+import 'package:decipher/screens/overview_screen.dart';
 import 'package:flutter/material.dart';
 
 class CareerPathsExploreScreen extends StatelessWidget {
@@ -68,7 +69,16 @@ class CareerPathsExploreScreen extends StatelessWidget {
                     title: careers[index].title,
                     description:
                         "Graphic design is a craft where professionals create...",
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => OverviewScreen(
+                            careerId: index,
+                          ),
+                        ),
+                      );
+                    },
                     assetPath: careers[index].assetPath,
                   );
                 }),
