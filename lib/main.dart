@@ -1,4 +1,4 @@
-import 'package:decipher/screens/sign_up_screen.dart';
+import 'package:decipher/screens/onboarding/main_onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
         cardColor: const Color(0XFFD9D9D9),
         useMaterial3: true,
       ),
-      home: const SignUpScreen(),
+      home: const MainOnboardingScreen(),
     );
   }
 }
