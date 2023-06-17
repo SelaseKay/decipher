@@ -1,5 +1,4 @@
 import 'package:decipher/componenets/custom_stepper.dart';
-import 'package:decipher/screens/home_screen.dart';
 import 'package:decipher/screens/main_container.dart';
 import 'package:decipher/screens/onboarding/onboarding_child.dart';
 import 'package:flutter/material.dart';
@@ -27,9 +26,9 @@ class _MainOnboardingScreenState extends State<MainOnboardingScreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Container(
-            width: double.infinity,
             padding: const EdgeInsets.all(40.0),
             child: SizedBox(
               width: 50.0,
@@ -44,7 +43,7 @@ class _MainOnboardingScreenState extends State<MainOnboardingScreen> {
                 },
                 child: Text(
                   "Skip",
-                  textAlign: TextAlign.end,
+                  textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.w400,
