@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
 
 class CustomTab extends StatefulWidget {
-  const CustomTab({super.key, required this.controller,});
+  const CustomTab({
+    super.key,
+    required this.controller,
+    this.selectedColor = const Color(0xFF0E336A),
+    this.unselectedColor = const Color(0xFFD9D9D9),
+    this.tabText1 = "Overview",
+    this.tabText2 = "Skills",
+    this.tabText3 = "Tools",
+  });
 
   final PageController controller;
+  final Color selectedColor;
+  final Color unselectedColor;
+  final String tabText1;
+  final String tabText2;
+  final String tabText3;
 
   @override
   State<CustomTab> createState() => _CustomTabState();
@@ -26,8 +39,8 @@ class _CustomTabState extends State<CustomTab> {
               child: TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: _isSelected1
-                      ? Theme.of(context).primaryColor
-                      : const Color(0xFFD9D9D9),
+                      ? widget.selectedColor
+                      : widget.unselectedColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18),
                   ),
@@ -41,20 +54,22 @@ class _CustomTabState extends State<CustomTab> {
                   });
                 },
                 child: Text(
-                  "Overview",
+                  widget.tabText1,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         color: _isSelected1 ? Colors.white : Colors.black,
                       ),
                 ),
               ),
             ),
-            const SizedBox(width: 16.0,),
+            const SizedBox(
+              width: 16.0,
+            ),
             Expanded(
               child: TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: _isSelected2
-                      ? Theme.of(context).primaryColor
-                      : const Color(0xFFD9D9D9),
+                      ? widget.selectedColor
+                      : widget.unselectedColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18),
                   ),
@@ -68,20 +83,22 @@ class _CustomTabState extends State<CustomTab> {
                   });
                 },
                 child: Text(
-                  "Skills",
+                  widget.tabText2,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         color: _isSelected2 ? Colors.white : Colors.black,
                       ),
                 ),
               ),
             ),
-              const SizedBox(width: 16.0,),
+            const SizedBox(
+              width: 16.0,
+            ),
             Expanded(
               child: TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: _isSelected3
-                      ? Theme.of(context).primaryColor
-                      : const Color(0xFFD9D9D9),
+                      ? widget.selectedColor
+                      : widget.unselectedColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18),
                   ),
@@ -95,7 +112,7 @@ class _CustomTabState extends State<CustomTab> {
                   });
                 },
                 child: Text(
-                  "Tools",
+                  widget.tabText2,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         color: _isSelected3 ? Colors.white : Colors.black,
                       ),

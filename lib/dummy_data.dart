@@ -1,3 +1,4 @@
+import 'package:decipher/model/major.dart';
 import 'package:decipher/model/news_item.dart';
 
 import 'model/career.dart';
@@ -53,4 +54,10 @@ const List<NewsItem> newsItems = [
   NewsItem(
     img: "assets/images/news_img5.png",
   ),
+];
+
+const List<Major> majors = [
+  Major(title: "Advertising and Media"),
+  Major(title: "Creative Multimedia"),
+  Major(title: "Visual Communication"),
 ];

@@ -1,4 +1,5 @@
 import 'package:decipher/componenets/majors_card.dart';
+import 'package:decipher/screens/majors_overview_screen.dart';
 import 'package:flutter/material.dart';
 
 class MajorsScreen extends StatelessWidget {
@@ -38,9 +39,19 @@ class MajorsScreen extends StatelessWidget {
               title: "Advertising  and Media",
               description:
                   "Focuses on developing Creative skills and strategies for designing effective advertisements.",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MajorsOverviewScreen(
+                      majorId: 0,
+                      tabButtonColor: const Color(0xFF6C63FF),
+                    ),
+                  ),
+                );
+              },
             ),
-             const SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             MajorsCard(
@@ -48,9 +59,19 @@ class MajorsScreen extends StatelessWidget {
               title: "Creative Multimedia",
               description:
                   "This course combines artistic and technical skills to create interactive and engaging multimedia content for various platforms.",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MajorsOverviewScreen(
+                      majorId: 1,
+                      tabButtonColor: const Color(0xFFF9A826),
+                    ),
+                  ),
+                );
+              },
             ),
-             const SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             MajorsCard(
@@ -58,7 +79,17 @@ class MajorsScreen extends StatelessWidget {
               title: "Visual Communication",
               description:
                   "This course explores techniques of conveying information visually through various media and design elements.",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MajorsOverviewScreen(
+                      majorId: 2,
+                      tabButtonColor: const Color(0xFF00BFA6),
+                    ),
+                  ),
+                );
+              },
             ),
           ]),
     );
