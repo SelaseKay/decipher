@@ -22,6 +22,7 @@ class WelcomeScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView(
+        padding: const EdgeInsets.only(bottom: 16.0,),
         children: [
           SizedBox(
             height: imageHeight,

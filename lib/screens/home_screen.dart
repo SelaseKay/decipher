@@ -3,6 +3,7 @@ import 'package:decipher/componenets/category_item.dart';
 import 'package:decipher/componenets/search_text_field.dart';
 import 'package:decipher/screens/career_paths_explore_screenn.dart';
 import 'package:decipher/screens/career_paths_screen.dart';
+import 'package:decipher/screens/majors_screen.dart';
 import 'package:decipher/screens/overview_screen.dart';
 import 'package:decipher/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,11 @@ class _HomeScreenState extends State<HomeScreen> {
     final categoryItemSize = (screenWidth - 24) / 3;
 
     return ListView(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding: const EdgeInsets.only(
+        left: 16.0,
+        right: 16.0,
+        bottom: 16.0,
+      ),
       children: [
         const SizedBox(
           height: 16.0,
@@ -134,7 +139,14 @@ class _HomeScreenState extends State<HomeScreen> {
               CategoryItem(
                 size: categoryItemSize,
                 color: const Color(0xFF6C63FF),
-                onTap: () {},
+                onTap: () {
+                    Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MajorsScreen(),
+                    ),
+                  );
+                },
                 text: "Majors",
               ),
               const SizedBox(
@@ -143,7 +155,9 @@ class _HomeScreenState extends State<HomeScreen> {
               CategoryItem(
                 size: categoryItemSize,
                 color: const Color(0xFFF9A826),
-                onTap: () {},
+                onTap: () {
+                 
+                },
                 text: "Internship",
               ),
               const SizedBox(
