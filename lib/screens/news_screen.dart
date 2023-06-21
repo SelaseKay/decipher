@@ -1,5 +1,6 @@
 import 'package:decipher/componenets/news_item_container.dart';
 import 'package:decipher/dummy_data.dart';
+import 'package:decipher/screens/news_feed_details_screen.dart';
 import 'package:flutter/material.dart';
 
 class NewsScreen extends StatelessWidget {
@@ -30,12 +31,23 @@ class NewsScreen extends StatelessWidget {
             horizontal: 16.0,
           ),
           child: Text(
-            "Borem ipsum dolor sit amet, consectetur adipiscing elit.Borem ipsum dolor sit ",
+            "KNUST wins Gold Award at the\nInternational Packaging Design Student\nCompetition 2022 by WPO",
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.labelMedium?.copyWith(
                   color: Colors.black,
-                  fontWeight: FontWeight.normal,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w500,
                 ),
+          ),
+        ),
+        const SizedBox(
+          height: 8.0,
+        ),
+        const Padding(
+          padding:  EdgeInsets.symmetric(horizontal: 16.0),
+          child:  Divider(
+            height: 0.5,
+            color:  Color(0xFF5F5F5F),
           ),
         ),
         const SizedBox(
@@ -63,12 +75,21 @@ class NewsScreen extends StatelessWidget {
           itemCount: newsItems.length,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
+              padding: const EdgeInsets.only(
+                bottom: 8.0,
+              ),
               child: NewsItemContainer(
                 assetPath: newsItems[index].img,
-                details: newsItems[index].details,
-                author: newsItems[index].author,
-                onTap: () {},
+                title: newsItems[index].title,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NewsFeedDetailsScreen(
+                              newsId: index,
+                            )),
+                  );
+                },
               ),
             );
           },

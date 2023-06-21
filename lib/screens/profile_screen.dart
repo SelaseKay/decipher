@@ -1,5 +1,6 @@
 import 'package:decipher/componenets/settings_button.dart';
 import 'package:decipher/componenets/settings_button_container.dart';
+import 'package:decipher/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -86,14 +87,23 @@ class ProfileScreen extends StatelessWidget {
                   onPressed: () {}),
             ],
           ),
-          const SizedBox(height: 24.0,),
+          const SizedBox(
+            height: 24.0,
+          ),
           SettingsButtonsContainer(
             title: "Preference",
             children: [
               SettingsButton(
                   assetPath: "assets/images/settings_icon.svg",
                   text: "Settings",
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SettingsScreen(),
+                      ),
+                    );
+                  }),
               const SizedBox(
                 height: 8.0,
               ),
@@ -107,7 +117,101 @@ class ProfileScreen extends StatelessWidget {
               SettingsButton(
                   assetPath: "assets/images/logout_icon.svg",
                   text: "Log Out",
-                  onPressed: () {}),
+                  onPressed: () {
+                    showModalBottomSheet(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(40.0),
+                                topRight: Radius.circular(40.0))),
+                        backgroundColor: Theme.of(context).primaryColor,
+                        context: context,
+                        builder: (context) {
+                          return SizedBox(
+                            width: double.infinity,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 64.0,
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.logout_outlined,
+                                    size: 30.0,
+                                    color: Color(0xFFD9D9D9),
+                                  ),
+                                  const SizedBox(
+                                    height: 4.0,
+                                  ),
+                                  Text(
+                                    "Are you sure you want to logout?",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .labelMedium
+                                        ?.copyWith(
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w300,
+                                        ),
+                                  ),
+                                  const SizedBox(
+                                    height: 8.0,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 64.0),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        TextButton(
+                                          style: TextButton.styleFrom(
+                                            backgroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Text(
+                                            "Cancel",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .labelMedium
+                                                ?.copyWith(
+                                                  color: const Color(0xFF212121),
+                                                ),
+                                          ),
+                                        ),
+                                        TextButton(
+                                          style: TextButton.styleFrom(
+                                            backgroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                          onPressed: () {},
+                                          child: Text(
+                                            "Logout",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .labelMedium
+                                                ?.copyWith(
+                                                  color: const Color(0xFF212121),
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        });
+                  }),
             ],
           )
         ],

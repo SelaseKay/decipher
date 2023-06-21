@@ -4,14 +4,12 @@ class NewsItemContainer extends StatelessWidget {
   const NewsItemContainer({
     super.key,
     required this.assetPath,
-    required this.details,
-    required this.author,
+    required this.title,
     required this.onTap,
   });
 
   final String assetPath;
-  final String details;
-  final String author;
+  final String title;
   final VoidCallback onTap;
 
   @override
@@ -19,7 +17,7 @@ class NewsItemContainer extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
             height: 72.0,
@@ -32,30 +30,15 @@ class NewsItemContainer extends StatelessWidget {
           const SizedBox(
             width: 20.0,
           ),
-          RichText(
+          Text(
+            title,
             textAlign: TextAlign.left,
-            text: TextSpan(
-              style: DefaultTextStyle.of(context).style,
-              children: <TextSpan>[
-                TextSpan(
-                  text: "$details \n" ,
-                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        color: const Color(0xFF5F5F5F),
-                        fontWeight: FontWeight.normal,
-                        fontSize: 14.0,
-                      ),
+            style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14.0,
                 ),
-                TextSpan(
-                  text: "by $author",
-                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        color: const Color(0xFF5F5F5F),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14.0,
-                      ),
-                ),
-              ],
-            ),
-          )
+          ),
         ],
       ),
     );

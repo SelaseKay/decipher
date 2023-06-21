@@ -112,7 +112,7 @@ class _CustomTabState extends State<CustomTab> {
                   });
                 },
                 child: Text(
-                  widget.tabText2,
+                  widget.tabText3,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         color: _isSelected3 ? Colors.white : Colors.black,
                       ),

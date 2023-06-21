@@ -1,5 +1,6 @@
 import 'package:decipher/screens/home_screen.dart';
 import 'package:decipher/screens/news_screen.dart';
+import 'package:decipher/screens/notifications_screen.dart';
 import 'package:decipher/screens/profile_screen.dart';
 import 'package:decipher/screens/task_screen.dart';
 import 'package:flutter/material.dart';
@@ -65,10 +66,20 @@ class _MainContainerState extends State<MainContainer> {
                     ),
               actions: _selectedIndex == 0
                   ? [
-                      SvgPicture.asset(
-                        "assets/images/alarm_icon.svg",
-                        height: 24.0,
-                        width: 24.0,
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NotificationsScreen(),
+                            ),
+                          );
+                        },
+                        child: SvgPicture.asset(
+                          "assets/images/alarm_icon.svg",
+                          height: 24.0,
+                          width: 24.0,
+                        ),
                       ),
                       const SizedBox(
                         width: 16.0,

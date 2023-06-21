@@ -91,7 +91,9 @@ class MajorsOverviewScreen extends StatelessWidget {
                     Text(
                       majors[majorId].description,
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                          fontWeight: FontWeight.w600, fontSize: 12.0),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 12.0,
+                          ),
                     )
                   ],
                 ),
