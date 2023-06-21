@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
             ),
             Text(
-              "Jennifer!",
+              "Edna!",
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
