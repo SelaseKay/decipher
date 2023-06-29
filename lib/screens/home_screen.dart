@@ -3,6 +3,7 @@ import 'package:decipher/componenets/category_item.dart';
 import 'package:decipher/componenets/search_text_field.dart';
 import 'package:decipher/screens/career_paths_explore_screenn.dart';
 import 'package:decipher/screens/career_paths_screen.dart';
+import 'package:decipher/screens/internship_screen.dart';
 import 'package:decipher/screens/majors_screen.dart';
 import 'package:decipher/screens/overview_screen.dart';
 import 'package:decipher/screens/welcome_screen.dart';
@@ -140,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 size: categoryItemSize,
                 color: const Color(0xFF6C63FF),
                 onTap: () {
-                    Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const MajorsScreen(),
@@ -156,7 +157,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 size: categoryItemSize,
                 color: const Color(0xFFF9A826),
                 onTap: () {
-                 
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const InternshipScreen(),
+                    ),
+                  );
                 },
                 text: "Internship",
               ),

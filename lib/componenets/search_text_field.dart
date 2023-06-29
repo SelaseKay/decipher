@@ -4,9 +4,11 @@ class SearchTextField extends StatelessWidget {
   const SearchTextField({
     super.key,
     required this.hint,
+    this.iconColor = const Color(0xFF0E336A)
   });
 
   final String hint;
+  final Color iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class SearchTextField extends StatelessWidget {
             ),
             child: Icon(
               Icons.search,
-              color: Theme.of(context).primaryColor,
+              color: iconColor,
             ),
           ),
           fillColor: Colors.white,

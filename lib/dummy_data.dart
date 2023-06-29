@@ -1,3 +1,4 @@
+import 'package:decipher/model/company.dart';
 import 'package:decipher/model/major.dart';
 import 'package:decipher/model/news_item.dart';
 
@@ -88,3 +89,22 @@ const List<Major> majors = [
     assetPath: "assets/images/major_overview_img3.png",
   ),
 ];
+
+ List<Company> companies = [
+  // Company(name: "Apex Ghana"),
+  // Company(name: "Lime X Honey"),
+  // Company(name: "Graphics"),
+  // Company(name: "MX 24 GH"),
+  // Company(name: "The Royals Design"),
+  // Company(name: "GBC"),
+  // Company(name: "Isel Media"),
+  // Company(name: "Social Ghana"),
+  // Company(name: "Apex Graphic"),
+  // Company(name: "Aprock Print"),
+  // Company(name: "UITS"),
+  // Company(name: "Eleventh Space"),
+];
+
+
+
+

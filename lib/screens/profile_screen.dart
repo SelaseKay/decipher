@@ -1,5 +1,6 @@
 import 'package:decipher/componenets/settings_button.dart';
 import 'package:decipher/componenets/settings_button_container.dart';
+import 'package:decipher/screens/quiz_home_screen.dart';
 import 'package:decipher/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -77,7 +78,14 @@ class ProfileScreen extends StatelessWidget {
               SettingsButton(
                   assetPath: "assets/images/quizzes_icon.svg",
                   text: "Quizzes",
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const QuizzesHomeScreen(),
+                      ),
+                    );
+                  }),
               const SizedBox(
                 height: 8.0,
               ),
@@ -159,9 +167,11 @@ class ProfileScreen extends StatelessWidget {
                                     height: 8.0,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 64.0),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 64.0),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         TextButton(
                                           style: TextButton.styleFrom(
@@ -180,7 +190,8 @@ class ProfileScreen extends StatelessWidget {
                                                 .textTheme
                                                 .labelMedium
                                                 ?.copyWith(
-                                                  color: const Color(0xFF212121),
+                                                  color:
+                                                      const Color(0xFF212121),
                                                 ),
                                           ),
                                         ),
@@ -199,7 +210,8 @@ class ProfileScreen extends StatelessWidget {
                                                 .textTheme
                                                 .labelMedium
                                                 ?.copyWith(
-                                                  color: const Color(0xFF212121),
+                                                  color:
+                                                      const Color(0xFF212121),
                                                 ),
                                           ),
                                         ),
