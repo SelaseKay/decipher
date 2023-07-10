@@ -1,5 +1,6 @@
 class Question {
   const Question({
+    this.id = 0,
     required this.text,
     required this.optionA,
     required this.optionB,
@@ -8,6 +9,7 @@ class Question {
     required this.correctAnswer,
   });
 
+  final int id;
   final String text;
   final String optionA;
   final String optionB;

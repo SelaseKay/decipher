@@ -1,15 +1,19 @@
 import 'package:decipher/componenets/options_container.dart';
 import 'package:decipher/componenets/question_board.dart';
-import 'package:decipher/dummy_data.dart';
+import 'package:decipher/model/question.dart';
 import 'package:flutter/material.dart';
 
 class QuizzesContainer extends StatefulWidget {
   const QuizzesContainer({
     super.key,
-    required this.index,
+    required this.question,
+    this.currentQNumber = 2,
+    this.totalQuestionNumber = 15,
   });
 
-  final int index;
+  final Question question;
+  final int currentQNumber;
+  final int totalQuestionNumber;
 
   @override
   State<QuizzesContainer> createState() => _QuizzesContainerState();
@@ -24,13 +28,15 @@ class _QuizzesContainerState extends State<QuizzesContainer>
     return ListView(
       children: [
         QuestionBoard(
-          question: questions[widget.index].text,
+          question: widget.question.text,
+          currentQNumber: widget.currentQNumber,
+          totalQuestionNumber: widget.totalQuestionNumber,
         ),
         const SizedBox(
           height: 50.0,
         ),
         OptionsContainer(
-          text: questions[widget.index].optionA,
+          text: widget.question.optionA,
           color: const Color(0xFFF9A826),
           index: 0,
           selectedOptionIndex: _selectedOptionIndex,
@@ -44,7 +50,7 @@ class _QuizzesContainerState extends State<QuizzesContainer>
           height: 16.0,
         ),
         OptionsContainer(
-          text: questions[widget.index].optionB,
+          text: widget.question.optionB,
           color: const Color(0xFFF9A826),
           index: 1,
           selectedOptionIndex: _selectedOptionIndex,
@@ -58,7 +64,7 @@ class _QuizzesContainerState extends State<QuizzesContainer>
           height: 16.0,
         ),
         OptionsContainer(
-          text: questions[widget.index].optionC,
+          text: widget.question.optionC,
           color: const Color(0xFFF9A826),
           selectedOptionIndex: _selectedOptionIndex,
           index: 2,
@@ -72,7 +78,7 @@ class _QuizzesContainerState extends State<QuizzesContainer>
           height: 16.0,
         ),
         OptionsContainer(
-          text: questions[widget.index].optionD,
+          text: widget.question.optionD,
           selectedOptionIndex: _selectedOptionIndex,
           color: const Color(0xFFF9A826),
           index: 3,

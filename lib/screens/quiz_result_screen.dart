@@ -1,7 +1,6 @@
 import 'package:decipher/componenets/answer_card.dart';
 import 'package:decipher/componenets/score_board.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class QuizResultScreen extends StatelessWidget {
   const QuizResultScreen({super.key});

@@ -224,7 +224,9 @@ class QuizInstructionScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const QuizScreen(),
+                        builder: (context) => const QuizScreen(
+                          course: "visual_communication",
+                        ),
                       ),
                     );
                   },

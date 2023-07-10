@@ -1,10 +1,9 @@
 import 'package:decipher/model/company.dart';
+import 'package:decipher/model/question.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:io';
-
-
 
 class DatabaseHelper {
   static Database? _database;
@@ -14,18 +13,9 @@ class DatabaseHelper {
 
   static final DatabaseHelper instance = DatabaseHelper._();
 
-  Future<Database?> get database async {
-    if (_database != null) {
-      return _database;
-    }
-
-    _database = await _initDatabase();
-    return _database;
-  }
-
-  Future<Database> _initDatabase() async {
+  Future<Database> _initDatabase([String dbName = "companies.db"]) async {
     final databasesPath = await getDatabasesPath();
-    final path = join(databasesPath, 'companies.db');
+    final path = join(databasesPath, dbName);
 
     // Check if the database already exists to avoid unnecessary copying
     if (await databaseExists(path)) {
@@ -33,7 +23,7 @@ class DatabaseHelper {
     }
 
     // Copy the prepopulated database from assets to local storage
-    final data = await rootBundle.load('assets/db/companies.db');
+    final data = await rootBundle.load('assets/db/$dbName');
     final List<int> bytes =
         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
     await File(path).writeAsBytes(bytes, flush: true);
@@ -86,8 +76,24 @@ class DatabaseHelper {
     return companies;
   }
 
-  Future<List<Map<String, dynamic>>?> executeQuery(String query) async {
-    final db = await database;
-    return db?.rawQuery(query);
+  Future<List<Question>> getVisualCommQuestions(
+      String dbName, String tableName) async {
+    _database ??= await _initDatabase(dbName);
+
+    final List<Map<String, dynamic>> maps = await _database!.query(tableName);
+
+    final List<Question> questions = List.generate(
+      maps.length,
+      (index) => Question(
+        id: maps[index]["id"],
+        text: maps[index]["questions"],
+        optionA: maps[index]["A"],
+        optionB: maps[index]["B"],
+        optionC: maps[index]["C"],
+        optionD: maps[index]["D"],
+        correctAnswer: maps[index]["answer"],
+      ),
+    );
+    return questions;
   }
 }

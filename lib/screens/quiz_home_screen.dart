@@ -1,6 +1,7 @@
 import 'package:decipher/componenets/h_quiz_card.dart';
 import 'package:decipher/componenets/recent_quizzes_card.dart';
 import 'package:decipher/screens/quiz_instructions_screen.dart';
+import 'package:decipher/screens/quiz_screen.dart';
 import 'package:flutter/material.dart';
 
 class QuizzesHomeScreen extends StatelessWidget {
@@ -125,13 +126,11 @@ class QuizzesHomeScreen extends StatelessWidget {
                     title: "Visual\nCommunication",
                     onPressed: () {
                       Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const QuizInstructionScreen(
-                       
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const QuizInstructionScreen(),
                         ),
-                      ),
-                    );
+                      );
                     },
                     assetPath: "assets/images/vc_img.png",
                   ),
@@ -141,7 +140,16 @@ class QuizzesHomeScreen extends StatelessWidget {
                   HQuizCard(
                     color: const Color(0xFF6C63FF),
                     title: "Creative\nMultimedia",
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const QuizScreen(
+                            course: "creative_multimedia",
+                          ),
+                        ),
+                      );
+                    },
                     assetPath: "assets/images/cm_img.png",
                   ),
                   const SizedBox(
@@ -172,7 +180,7 @@ class QuizzesHomeScreen extends StatelessWidget {
               height: 12.0,
             ),
             const RecentQuizzesCard(
-              color:  Color(0xFF00BFA6),
+              color: Color(0xFF00BFA6),
               title: "Visual Communication",
               assetPath: "assets/images/vc_img.png",
             )

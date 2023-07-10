@@ -61,13 +61,15 @@ class OptionsContainer extends StatelessWidget {
               const SizedBox(
                 width: 13.0,
               ),
-              Text(
-                text,
-                style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.0,
-                    ),
+              Expanded(
+                child: Text(
+                  text,
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.0,
+                      ),
+                ),
               )
             ],
           ),

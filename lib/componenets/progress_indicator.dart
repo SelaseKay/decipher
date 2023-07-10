@@ -5,20 +5,22 @@ class QuestionProgressIndicator extends StatelessWidget {
     super.key,
     required this.currentQNumber,
     required this.totalQuestions,
+    required this.width,
+    required this.progressIndicatorWidth,
   });
 
   final int currentQNumber;
   final int totalQuestions;
+  final double width;
+  final double progressIndicatorWidth;
 
   @override
   Widget build(BuildContext context) {
-    double progress =
-        currentQNumber / totalQuestions * MediaQuery.of(context).size.width - 32;
     return Stack(
       children: [
         Container(
           height: 20.0,
-          width: double.infinity,
+          width: width,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(32.0),
@@ -29,7 +31,7 @@ class QuestionProgressIndicator extends StatelessWidget {
         AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           height: 20.0,
-          width: progress,
+          width: progressIndicatorWidth,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
               Radius.circular(32.0),

@@ -4,9 +4,13 @@ class QuestionBoard extends StatelessWidget {
   const QuestionBoard({
     super.key,
     required this.question,
+    required this.currentQNumber,
+    required this.totalQuestionNumber,
   });
 
   final String question;
+  final int currentQNumber;
+  final int totalQuestionNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,7 @@ class QuestionBoard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Q.2 /20",
+            "Q.$currentQNumber /$totalQuestionNumber",
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
