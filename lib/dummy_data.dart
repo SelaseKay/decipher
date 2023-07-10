@@ -1,6 +1,7 @@
 import 'package:decipher/model/company.dart';
 import 'package:decipher/model/major.dart';
 import 'package:decipher/model/news_item.dart';
+import 'package:decipher/model/question.dart';
 
 import 'model/career.dart';
 
@@ -90,7 +91,7 @@ const List<Major> majors = [
   ),
 ];
 
- List<Company> companies = [
+List<Company> companies = [
   // Company(name: "Apex Ghana"),
   // Company(name: "Lime X Honey"),
   // Company(name: "Graphics"),
@@ -105,6 +106,21 @@ const List<Major> majors = [
   // Company(name: "Eleventh Space"),
 ];
 
-
-
-
+List<Question> questions = [
+  const Question(
+    text: "Psychology is defined as the scientific study of:",
+    optionA: "a. people and things",
+    optionB: "b. emotions and beliefs",
+    optionC: "c. perception and religion",
+    optionD: "d. mind and behaviour",
+    correctAnswer: "d. mind and behaviour",
+  ),
+  const Question(
+    text: "The word Psychologycome from ?",
+    optionA: "a. Latin",
+    optionB: "b.Spanish",
+    optionC: "c.German",
+    optionD: "d.Greek",
+    correctAnswer: "a. Latin",
+  ),
+];

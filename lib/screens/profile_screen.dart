@@ -1,5 +1,6 @@
 import 'package:decipher/componenets/settings_button.dart';
 import 'package:decipher/componenets/settings_button_container.dart';
+import 'package:decipher/screens/meet_team_screen.dart';
 import 'package:decipher/screens/quiz_home_screen.dart';
 import 'package:decipher/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +93,14 @@ class ProfileScreen extends StatelessWidget {
               SettingsButton(
                   assetPath: "assets/images/meet_team_icon.svg",
                   text: "Meet the Team",
-                  onPressed: () {}),
+                  onPressed: () {
+                     Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MeetTeamScreen(),
+                      ),
+                    );
+                  }),
             ],
           ),
           const SizedBox(
