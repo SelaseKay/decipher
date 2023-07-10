@@ -1,6 +1,7 @@
 import 'package:decipher/componenets/progress_indicator.dart';
 import 'package:decipher/componenets/timer_text.dart';
 import 'package:decipher/dummy_data.dart';
+import 'package:decipher/screens/quiz_result_screen.dart';
 import 'package:decipher/screens/quizzes_container.dart';
 import 'package:flutter/material.dart';
 
@@ -142,6 +143,14 @@ class _QuizScreenState extends State<QuizScreen> {
                     ),
                   ),
                   onPressed: () async {
+                    if (_currentIndex + 1 == questions.length) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const QuizResultScreen(),
+                        ),
+                      );
+                    }
                     await _controller.nextPage(
                       duration: const Duration(microseconds: 200),
                       curve: Curves.bounceIn,
