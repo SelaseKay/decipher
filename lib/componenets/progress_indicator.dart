@@ -26,7 +26,8 @@ class QuestionProgressIndicator extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        Container(
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
           height: 20.0,
           width: progress,
           decoration: const BoxDecoration(
