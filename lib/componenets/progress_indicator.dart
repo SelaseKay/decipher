@@ -16,30 +16,33 @@ class QuestionProgressIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          height: 20.0,
-          width: width,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(32.0),
+    return SizedBox(
+      width: double.infinity,
+      child: Stack(
+        children: [
+          Container(
+            height: 20.0,
+            width: width,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(32.0),
+              ),
+              color: Colors.black,
             ),
-            color: Colors.black,
           ),
-        ),
-        AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          height: 20.0,
-          width: progressIndicatorWidth,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(32.0),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            height: 20.0,
+            width: (currentQNumber / totalQuestions) * width,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(32.0),
+              ),
+              color: Color(0xFF00BFA6),
             ),
-            color: Color(0xFF00BFA6),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

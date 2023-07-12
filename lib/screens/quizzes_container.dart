@@ -9,11 +9,14 @@ class QuizzesContainer extends StatefulWidget {
     required this.question,
     this.currentQNumber = 2,
     this.totalQuestionNumber = 15,
+    required this.onOptionSelected,
   });
 
   final Question question;
   final int currentQNumber;
   final int totalQuestionNumber;
+
+  final void Function(int score) onOptionSelected;
 
   @override
   State<QuizzesContainer> createState() => _QuizzesContainerState();
@@ -41,6 +44,11 @@ class _QuizzesContainerState extends State<QuizzesContainer>
           index: 0,
           selectedOptionIndex: _selectedOptionIndex,
           onTap: () {
+            if (widget.question.optionA == widget.question.correctAnswer) {
+              widget.onOptionSelected(1);
+            } else {
+              widget.onOptionSelected(0);
+            }
             setState(() {
               _selectedOptionIndex = 0;
             });
@@ -55,6 +63,11 @@ class _QuizzesContainerState extends State<QuizzesContainer>
           index: 1,
           selectedOptionIndex: _selectedOptionIndex,
           onTap: () {
+             if (widget.question.optionB == widget.question.correctAnswer) {
+              widget.onOptionSelected(1);
+            } else {
+              widget.onOptionSelected(0);
+            }
             setState(() {
               _selectedOptionIndex = 1;
             });
@@ -69,6 +82,11 @@ class _QuizzesContainerState extends State<QuizzesContainer>
           selectedOptionIndex: _selectedOptionIndex,
           index: 2,
           onTap: () {
+             if (widget.question.optionC == widget.question.correctAnswer) {
+              widget.onOptionSelected(1);
+            } else {
+              widget.onOptionSelected(0);
+            }
             setState(() {
               _selectedOptionIndex = 2;
             });
@@ -83,6 +101,11 @@ class _QuizzesContainerState extends State<QuizzesContainer>
           color: const Color(0xFFF9A826),
           index: 3,
           onTap: () {
+             if (widget.question.optionD == widget.question.correctAnswer) {
+              widget.onOptionSelected(1);
+            } else {
+              widget.onOptionSelected(0);
+            }
             setState(() {
               _selectedOptionIndex = 3;
             });

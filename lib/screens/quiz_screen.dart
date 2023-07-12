@@ -5,6 +5,7 @@ import 'package:decipher/model/question.dart';
 import 'package:decipher/screens/quiz_result_screen.dart';
 import 'package:decipher/screens/quizzes_container.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({
@@ -22,13 +23,14 @@ class _QuizScreenState extends State<QuizScreen> {
   final PageController _controller = PageController();
 
   int _currentIndex = 0;
+  final List<int> _scores = List<int>.generate(15, (index) => 0);
 
   late Future<List<Question>> questions;
 
   @override
   void initState() {
     super.initState();
-    questions = DatabaseHelper.instance.getVisualCommQuestions(
+    questions = DatabaseHelper.instance.getQuestions(
       "quiz.db",
       widget.course,
     );
@@ -36,7 +38,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final _questionProgressIndicatorWidth =
+    final questionProgressIndicatorWidth =
         MediaQuery.of(context).size.width - 64;
     return Scaffold(
       backgroundColor: const Color(0xFFECF4FF),
@@ -89,14 +91,35 @@ class _QuizScreenState extends State<QuizScreen> {
                             child: TimerText(
                               onTimeUp: () {
                                 print("Time is up");
+                                int totalScore = _scores.reduce(
+                                    (value, element) => value + element);
+                                 Fluttertoast.showToast(
+                                    msg: "Oops, You've run out of time!",
+                                    toastLength: Toast.LENGTH_LONG,
+                                    gravity: ToastGravity.CENTER,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.red,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0);
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => QuizResultScreen(
+                                      course: widget.course,
+                                      scores: totalScore,
+                                      totalQuestionNumber:
+                                          snapshot.data!.length,
+                                    ),
+                                  ),
+                                );
                               },
                             ),
                           ),
                           QuestionProgressIndicator(
-                            width: _questionProgressIndicatorWidth,
+                            width: questionProgressIndicatorWidth,
                             progressIndicatorWidth: (_currentIndex + 1) /
                                 snapshot.data!.length *
-                                _questionProgressIndicatorWidth,
+                                questionProgressIndicatorWidth,
                             currentQNumber: _currentIndex + 1,
                             totalQuestions: snapshot.data!.length,
                           ),
@@ -111,7 +134,12 @@ class _QuizScreenState extends State<QuizScreen> {
                                 snapshot.data!.length,
                                 (index) {
                                   return QuizzesContainer(
+                                    currentQNumber: index + 1,
+                                    totalQuestionNumber: snapshot.data!.length,
                                     question: snapshot.data![index],
+                                    onOptionSelected: (score) {
+                                      _scores[index] = score;
+                                    },
                                   );
                                 },
                               ),
@@ -178,11 +206,16 @@ class _QuizScreenState extends State<QuizScreen> {
                           ),
                           onPressed: () async {
                             if (_currentIndex + 1 == snapshot.data!.length) {
-                              Navigator.push(
+                              int totalScore = _scores
+                                  .reduce((value, element) => value + element);
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      const QuizResultScreen(),
+                                  builder: (context) => QuizResultScreen(
+                                    course: widget.course,
+                                    scores: totalScore,
+                                    totalQuestionNumber: snapshot.data!.length,
+                                  ),
                                 ),
                               );
                             }

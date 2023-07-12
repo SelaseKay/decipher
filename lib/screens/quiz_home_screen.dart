@@ -158,7 +158,17 @@ class QuizzesHomeScreen extends StatelessWidget {
                   HQuizCard(
                     color: const Color(0xFFF9A826),
                     title: "Advertising\n& Media",
-                    onPressed: () {},
+                    onPressed: () {
+                      print("advertising card click");
+                       Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const QuizScreen(
+                            course: "advertising",
+                          ),
+                        ),
+                      );
+                    },
                     assetPath: "assets/images/cm_img.png",
                   ),
                   const SizedBox(

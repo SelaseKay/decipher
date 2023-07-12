@@ -1,9 +1,19 @@
 import 'package:decipher/componenets/answer_card.dart';
 import 'package:decipher/componenets/score_board.dart';
+import 'package:decipher/screens/quiz_screen.dart';
 import 'package:flutter/material.dart';
 
 class QuizResultScreen extends StatelessWidget {
-  const QuizResultScreen({super.key});
+  const QuizResultScreen({
+    super.key,
+    required this.scores,
+    required this.course,
+    required this.totalQuestionNumber,
+  });
+
+  final int scores;
+  final String course;
+  final int totalQuestionNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -105,9 +115,9 @@ class QuizResultScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20.0,
                   ),
-                  const ScoreBoard(
-                    totalCorrectAnswers: 13,
-                    totalQuestions: 20,
+                  ScoreBoard(
+                    totalCorrectAnswers: scores,
+                    totalQuestions: totalQuestionNumber,
                   ),
                   const SizedBox(
                     height: 40.0,
@@ -116,15 +126,15 @@ class QuizResultScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       AnswerCard(
-                        title: "13",
+                        title: "$scores",
                         subtitle: "correct answers",
                         color: const Color(0xFF00BFA6),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 30.0,
                       ),
                       AnswerCard(
-                        title: "7",
+                        title: "${totalQuestionNumber - scores}",
                         subtitle: "wrong answers",
                         color: const Color(0xFFF9A826),
                       )
@@ -146,10 +156,22 @@ class QuizResultScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                             Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => QuizScreen(
+                                    course: course,
+                                  ),
+                                ),
+                              );
+                          },
                           child: Text(
                             "Try Again",
-                            style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelMedium
+                                ?.copyWith(
                                   color: Colors.white,
                                 ),
                           ),

@@ -76,7 +76,7 @@ class DatabaseHelper {
     return companies;
   }
 
-  Future<List<Question>> getVisualCommQuestions(
+  Future<List<Question>> getQuestions(
       String dbName, String tableName) async {
     _database ??= await _initDatabase(dbName);
 
@@ -94,6 +94,7 @@ class DatabaseHelper {
         correctAnswer: maps[index]["answer"],
       ),
     );
+    questions.shuffle();
     return questions;
   }
 }

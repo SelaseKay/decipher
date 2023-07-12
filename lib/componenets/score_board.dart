@@ -58,7 +58,7 @@ class ScoreBoard extends StatelessWidget {
             progressColor: const Color(0xFF00BFA6),
             backgroundWidth: 8.0,
             lineWidth: 8.0,
-            percent: 0.55,
+            percent: (totalCorrectAnswers / totalQuestions),
           ),
         ),
       ],

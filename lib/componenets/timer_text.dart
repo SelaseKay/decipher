@@ -16,7 +16,7 @@ class TimerText extends StatefulWidget {
 }
 
 class _TimerTextState extends State<TimerText> {
-  int _secondsRemaining = 120; // 15 minutes in seconds
+  int _secondsRemaining = 900; // 15 minutes in seconds
   late Timer _timer;
 
   void startTimer() {
@@ -34,7 +34,6 @@ class _TimerTextState extends State<TimerText> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     startTimer();
   }
