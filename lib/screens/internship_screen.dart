@@ -17,7 +17,6 @@ class _InternshipScreenState extends State<InternshipScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     companies = DatabaseHelper.instance.companies;
   }

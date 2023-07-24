@@ -44,7 +44,7 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
                 });
               },
               child: Text(
-                "Comapny",
+                "List of companies",
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: _isButton1Selected
                           ? Theme.of(context).primaryColor
@@ -71,7 +71,7 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
                 });
               },
               child: Text(
-                "Shortlisted",
+                "Filtered",
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: _isButton2Selected
                           ? Theme.of(context).primaryColor
