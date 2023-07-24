@@ -85,6 +85,9 @@ class CareerPathItem extends StatelessWidget {
                 Flexible(
                   child: Text(
                     description,
+                    softWrap: false,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                     style: Theme.of(context).textTheme.labelMedium?.copyWith(
                           color: Colors.black,
                           fontWeight: FontWeight.w100,

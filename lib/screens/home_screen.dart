@@ -1,14 +1,13 @@
 import 'package:decipher/componenets/career_path_item.dart';
 import 'package:decipher/componenets/category_item.dart';
 import 'package:decipher/componenets/search_text_field.dart';
-import 'package:decipher/screens/career_paths_explore_screenn.dart';
+import 'package:decipher/dummy_data.dart';
 import 'package:decipher/screens/career_paths_screen.dart';
 import 'package:decipher/screens/internship_screen.dart';
 import 'package:decipher/screens/majors_screen.dart';
 import 'package:decipher/screens/overview_screen.dart';
 import 'package:decipher/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -148,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 },
-                text: "Majors",
+                text: "Options",
               ),
               const SizedBox(
                 width: 14.0,
@@ -196,36 +195,6 @@ class _HomeScreenState extends State<HomeScreen> {
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
                   fontWeight: FontWeight.normal, color: Colors.black),
             ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CareerPathsExploreScreen(),
-                  ),
-                );
-              },
-              child: Row(
-                children: [
-                  SvgPicture.asset(
-                    "assets/images/arrow_right_icon.svg",
-                    height: 12.0,
-                    width: 12.0,
-                  ),
-                  const SizedBox(
-                    width: 4.0,
-                  ),
-                  Text(
-                    "Explore all",
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.black,
-                          fontSize: 12.0,
-                        ),
-                  )
-                ],
-              ),
-            )
           ],
         ),
         Row(
@@ -242,6 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   MaterialPageRoute(
                     builder: (context) => OverviewScreen(
                       careerId: 0,
+                      careerType: CareerType.visualComm,
                     ),
                   ),
                 );
@@ -262,6 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   MaterialPageRoute(
                     builder: (context) => OverviewScreen(
                       careerId: 1,
+                       careerType: CareerType.visualComm,
                     ),
                   ),
                 );

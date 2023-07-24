@@ -5,7 +5,23 @@ import 'package:decipher/screens/overview_screen.dart';
 import 'package:flutter/material.dart';
 
 class CareerPathsExploreScreen extends StatelessWidget {
-  const CareerPathsExploreScreen({super.key});
+  const CareerPathsExploreScreen({
+    super.key,
+    required this.careerType,
+  });
+
+  final CareerType careerType;
+
+  _getTitle(CareerType careerType) {
+    switch (careerType) {
+      case CareerType.visualComm:
+        return "Visual Communication";
+      case CareerType.adsAndMedia:
+        return "Advertising and Media";
+      default:
+        return "Creative Multimedia";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +30,7 @@ class CareerPathsExploreScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Visual Communication",
+          _getTitle(careerType),
           style: Theme.of(context)
               .textTheme
               .labelLarge
@@ -47,7 +63,7 @@ class CareerPathsExploreScreen extends StatelessWidget {
               height: 10.0,
             ),
             Text(
-              "Career in Visual Communication",
+              "Careers in ${_getTitle(careerType)}",
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelMedium?.copyWith(
                   fontSize: 16.0, color: Theme.of(context).primaryColor),
@@ -64,22 +80,22 @@ class CareerPathsExploreScreen extends StatelessWidget {
                 mainAxisSpacing: 12.0,
                 crossAxisSpacing: 20.0,
                 // Generate 100 widgets that display their index in the List.
-                children: List.generate(8, (index) {
+                children: List.generate(careers[careerType]!.length, (index) {
                   return CareerPathItem(
-                    title: careers[index].title,
-                    description:
-                        "Graphic design is a craft where professionals create...",
+                    title: careers[careerType]![index].title,
+                    description: careers[careerType]![index].overview,
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => OverviewScreen(
                             careerId: index,
+                            careerType: careerType,
                           ),
                         ),
                       );
                     },
-                    assetPath: careers[index].assetPath,
+                    assetPath: careers[careerType]![index].assetPath,
                   );
                 }),
               ),

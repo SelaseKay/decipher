@@ -61,7 +61,7 @@ class _MainOnboardingScreenState extends State<MainOnboardingScreen> {
                 OnBoardingChild(
                   imageHeight: imageHeight,
                   assetPath: "assets/images/onboarding_img1.svg",
-                  title: "Majors in Communication Design",
+                  title: "Options in Communication Design",
                   description:
                       "Dive into detailed descriptions, course requirement, and discover the fields that align with your passion.",
                 ),

@@ -6,9 +6,11 @@ class OverviewScreen extends StatelessWidget {
   OverviewScreen({
     super.key,
     required this.careerId,
+    required this.careerType,
   });
 
   final int careerId;
+  final CareerType careerType;
 
   final PageController _controller = PageController();
 
@@ -35,7 +37,7 @@ class OverviewScreen extends StatelessWidget {
             height: imageHeight,
             width: double.infinity,
             child: Image.asset(
-              careers[careerId].assetPath,
+              careers[careerType]![careerId].assetPath,
               fit: BoxFit.cover,
             ),
           ),
@@ -47,7 +49,7 @@ class OverviewScreen extends StatelessWidget {
               horizontal: 32.0,
             ),
             child: Text(
-              careers[careerId].title,
+              careers[careerType]![careerId].title,
               style: Theme.of(context).textTheme.labelLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColor,
@@ -76,7 +78,7 @@ class OverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 16.0),
                   children: [
                     Text(
-                      careers[careerId].overview,
+                      careers[careerType]![careerId].overview,
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
                           fontWeight: FontWeight.w600, fontSize: 12.0),
                     )
@@ -86,7 +88,7 @@ class OverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 16.0),
                   children: [
                     Text(
-                      careers[careerId].skills,
+                      careers[careerType]![careerId].skills,
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
                           fontWeight: FontWeight.w600, fontSize: 12.0),
                     )
@@ -96,7 +98,7 @@ class OverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 16.0),
                   children: [
                     Text(
-                      careers[careerId].tools,
+                      careers[careerType]![careerId].tools,
                       style: Theme.of(context).textTheme.labelSmall?.copyWith(
                           fontWeight: FontWeight.w600, fontSize: 12.0),
                     )

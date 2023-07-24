@@ -1,6 +1,8 @@
 import 'package:decipher/componenets/industry_players_item.dart';
 import 'package:decipher/componenets/pathway_item.dart';
 import 'package:decipher/componenets/search_text_field.dart';
+import 'package:decipher/dummy_data.dart';
+import 'package:decipher/screens/career_paths_explore_screenn.dart';
 import 'package:flutter/material.dart';
 
 class CareerPathsScreen extends StatelessWidget {
@@ -112,6 +114,16 @@ class CareerPathsScreen extends StatelessWidget {
               children: [
                 PathwayItem(
                   size: pathwayItemSize,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CareerPathsExploreScreen(
+                          careerType: CareerType.visualComm,
+                        ),
+                      ),
+                    );
+                  },
                   text: "Visual com",
                   assetPath: "assets/images/pathway_img1.png",
                   cardColor: const Color(0xFF6C63FF),
@@ -121,6 +133,16 @@ class CareerPathsScreen extends StatelessWidget {
                 ),
                 PathwayItem(
                   size: pathwayItemSize,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CareerPathsExploreScreen(
+                          careerType: CareerType.adsAndMedia,
+                        ),
+                      ),
+                    );
+                  },
                   text: "Ads & Media",
                   assetPath: "assets/images/pathway_img2.png",
                   cardColor: const Color(0xFFF9A826),
@@ -130,6 +152,16 @@ class CareerPathsScreen extends StatelessWidget {
                 ),
                 PathwayItem(
                   size: pathwayItemSize,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CareerPathsExploreScreen(
+                          careerType: CareerType.creativeMultimedia,
+                        ),
+                      ),
+                    );
+                  },
                   text: "Multimedia",
                   assetPath: "assets/images/pathway_img3.png",
                   cardColor: const Color(0xFF00BFA6),
@@ -157,25 +189,39 @@ class CareerPathsScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: const [
                 IndustryPlayersItem(
-                  text: "Artdemigod",
+                  text: "@Artdemigod",
                   assetPath: "assets/images/industry_player1.png",
                 ),
                 SizedBox(
                   width: 16.0,
                 ),
                 IndustryPlayersItem(
-                  text: "Datartgod",
+                  text: "@Datartgod",
                   assetPath: "assets/images/industry_player2.png",
                 ),
                 SizedBox(
                   width: 16.0,
                 ),
                 IndustryPlayersItem(
-                  text: "Elcarna",
+                  text: "@Elcarna",
                   assetPath: "assets/images/industry_player3.png",
+                ),
+                SizedBox(
+                  height: 16.0,
                 ),
               ],
             ),
+          ),
+          Text(
+            "Visit their social media platforms to know more about them  and other creatives in the notable industries.",
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  fontSize: 10.0,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                ),
+          ),
+          const SizedBox(
+            height: 42.0,
           ),
         ],
       ),
