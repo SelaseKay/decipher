@@ -31,13 +31,30 @@ class DatabaseHelper {
     return openDatabase(path);
   }
 
-  Future<List<Company>> get companies async {
+  Future<List<Company>> getCompanies(String filter) async {
     _database ??= await _initDatabase();
 
-    final List<Map<String, dynamic>> maps =
-        await _database!.query('internship');
+    final List<Map<String, dynamic>> maps;
 
-    final List<Company> companies = List.generate(
+    if (filter == "NONE") {
+      maps = await _database!.query('internship');
+
+      return List.generate(
+        maps.length,
+        (index) => Company(
+          name: maps[index]["Company"],
+          region: maps[index]["Region"],
+          isShortListed: maps[index]["is_shortlisted"] == 0 ? false : true,
+        ),
+      );
+    }
+
+    maps = await _database!.query('internship',
+        columns: ["Company", "Region", "is_shortlisted"],
+        where: "Region = ?",
+        whereArgs: [filter]);
+        
+    return List.generate(
       maps.length,
       (index) => Company(
         name: maps[index]["Company"],
@@ -45,18 +62,15 @@ class DatabaseHelper {
         isShortListed: maps[index]["is_shortlisted"] == 0 ? false : true,
       ),
     );
-    return companies;
   }
 
   Future<void> updateField(String company, int value) async {
-    print("Company name: $company");
-    int? count = await _database?.update(
+    await _database?.update(
       "internship",
       {"is_shortlisted": value},
       where: "Company = ?",
       whereArgs: [company],
     );
-    print("count is $count");
   }
 
   Future<List<Company>> get shortlistedCompanies async {
@@ -76,8 +90,7 @@ class DatabaseHelper {
     return companies;
   }
 
-  Future<List<Question>> getQuestions(
-      String dbName, String tableName) async {
+  Future<List<Question>> getQuestions(String dbName, String tableName) async {
     _database ??= await _initDatabase(dbName);
 
     final List<Map<String, dynamic>> maps = await _database!.query(tableName);

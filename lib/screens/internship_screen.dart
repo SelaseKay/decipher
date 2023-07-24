@@ -1,4 +1,5 @@
 import 'package:decipher/componenets/company_container.dart';
+import 'package:decipher/componenets/custom_drop_down_button.dart';
 import 'package:decipher/componenets/custom_toggle_button.dart';
 import 'package:decipher/componenets/search_text_field.dart';
 import 'package:decipher/db/database_helper.dart';
@@ -13,12 +14,11 @@ class InternshipScreen extends StatefulWidget {
 }
 
 class _InternshipScreenState extends State<InternshipScreen> {
-  late Future<List<Company>> companies;
+  String filter = "NONE";
 
   @override
   void initState() {
     super.initState();
-    companies = DatabaseHelper.instance.companies;
   }
 
   final _controller = PageController();
@@ -68,6 +68,14 @@ class _InternshipScreenState extends State<InternshipScreen> {
             const SizedBox(
               height: 14.0,
             ),
+            CustomDropDownButton(
+              onChanged: (value) {
+                setState(() {
+                  filter = value;
+                });
+              },
+            ),
+            const SizedBox(height: 8.0),
             Expanded(
                 child: Padding(
               padding: const EdgeInsets.symmetric(
@@ -78,7 +86,7 @@ class _InternshipScreenState extends State<InternshipScreen> {
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
                   FutureBuilder<List<Company>>(
-                      future: DatabaseHelper.instance.companies,
+                      future: DatabaseHelper.instance.getCompanies(filter),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {

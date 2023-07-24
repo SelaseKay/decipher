@@ -458,7 +458,8 @@ It's important to note that photography as a profession can be highly competitiv
     Career(
         title: "Content Developer",
         assetPath: "assets/images/creative_multimedia_img1.png",
-        overview: '''A content developer is a professional involved in creating and curating content for various platforms and mediums. They focus on developing engaging and informative content that meets the needs of the target audience. Content developers play a vital role in content creation, research, and analysis. They possess strong writing skills and creativity to produce high-quality content. They also have a basic understanding of SEO principles and utilize content management systems to organize and publish content effectively. Overall, content developers contribute to the development of valuable and impactful content for different channels and audiences.
+        overview:
+            '''A content developer is a professional involved in creating and curating content for various platforms and mediums. They focus on developing engaging and informative content that meets the needs of the target audience. Content developers play a vital role in content creation, research, and analysis. They possess strong writing skills and creativity to produce high-quality content. They also have a basic understanding of SEO principles and utilize content management systems to organize and publish content effectively. Overall, content developers contribute to the development of valuable and impactful content for different channels and audiences.
 
 Content developers are skilled professionals who specialize in the creation and curation of content for different mediums such as websites, blogs, social media platforms, and more. They have a deep understanding of audience needs and strive to deliver content that is relevant, engaging, and informative.
 
@@ -473,7 +474,8 @@ Content developers have a keen eye for detail and possess excellent proofreading
 In addition to writing, content developers may also have skills in other areas such as graphic design, video editing, or basic HTML/CSS coding. These additional skills allow them to create visually appealing and multimedia-rich content.
 
 Overall, content developers are creative individuals who are passionate about storytelling and have a deep understanding of their target audience. They strive to create content that resonates with the audience, establishes brand authority, and drives engagement and conversions.''',
-skills: '''1. Strong Writing Skills: Content developers have excellent writing skills and can effectively communicate ideas and information in a clear and engaging manner. They have a good command of grammar, punctuation, and sentence structure.
+        skills:
+            '''1. Strong Writing Skills: Content developers have excellent writing skills and can effectively communicate ideas and information in a clear and engaging manner. They have a good command of grammar, punctuation, and sentence structure.
 
 2. Research Skills: Content developers are skilled in conducting thorough research to gather information on various topics. They know how to find reliable sources, extract relevant information, and synthesize it into valuable content.
 
@@ -494,7 +496,8 @@ skills: '''1. Strong Writing Skills: Content developers have excellent writing s
 10. Continuous Learning: Content developers have a passion for learning and staying updated with industry trends, best practices, and emerging technologies. They actively seek out new knowledge, tools, and techniques to enhance their content development skills.
 
 These skills, combined with a strong attention to detail, critical thinking, and a passion for storytelling, enable content developers to create compelling and valuable content that engages and resonates with the target audience.''',
-tools: '''Content developers utilize various tools to enhance their content creation and management processes.
+        tools:
+            '''Content developers utilize various tools to enhance their content creation and management processes.
 
 1. Content Management Systems (CMS): CMS platforms like WordPress, Drupal, or Joomla are widely used by content developers to create, edit, and publish content on websites. These systems provide a user-friendly interface for managing and organizing content effectively.
 
@@ -516,14 +519,12 @@ tools: '''Content developers utilize various tools to enhance their content crea
 
 10. Keyword Research Tools: Keyword research tools like Google Keyword Planner, Ahrefs, or SEMrush assist content developers in identifying relevant keywords for their content. These tools provide search volume, competition analysis, and keyword suggestions to optimize content for better search rankings.
 
-These tools aid content developers in streamlining their workflows, optimizing content for search engines, enhancing visual elements, and tracking the performance of their content. The specific tools used may vary depending on individual preferences, project requirements, and the nature of the content being developed.'''
-),
-
-
-Career(
+These tools aid content developers in streamlining their workflows, optimizing content for search engines, enhancing visual elements, and tracking the performance of their content. The specific tools used may vary depending on individual preferences, project requirements, and the nature of the content being developed.'''),
+    Career(
         title: "Videographer",
         assetPath: "assets/images/creative_multimedia_img2.png",
-        overview: '''A videographer is a professional who specializes in the art of capturing and producing video content. They are skilled in using cameras, lighting equipment, and audio devices to film a wide range of subjects, including events, interviews, documentaries, commercials, and more. 
+        overview:
+            '''A videographer is a professional who specializes in the art of capturing and producing video content. They are skilled in using cameras, lighting equipment, and audio devices to film a wide range of subjects, including events, interviews, documentaries, commercials, and more. 
 
 Videographers have a deep understanding of camera techniques, composition, and framing to create visually captivating shots. They know how to manipulate camera settings, choose appropriate lenses, and utilize camera movements to capture the desired visual style and convey the intended message.
 
@@ -537,7 +538,8 @@ Videographers work on various projects, collaborating with clients, directors, p
 
 Adaptability is an important quality of a videographer. They often work in different environments, facing various challenges such as changing lighting conditions, tight schedules, or unexpected situations. Videographers are resourceful problem solvers, finding solutions on the spot and making adjustments to ensure the success of the video shoot.
 ''',
-skills: '''Videographers possess a range of skills that allow them to capture, edit, and produce high-quality video content. 
+        skills:
+            '''Videographers possess a range of skills that allow them to capture, edit, and produce high-quality video content. 
 
 1. Camera Operation: Videographers have expertise in operating professional cameras and understanding their various settings and features. They know how to adjust exposure, focus, shutter speed, and other camera parameters to capture high-quality video footage.
 
@@ -555,7 +557,8 @@ skills: '''Videographers possess a range of skills that allow them to capture, e
 
 8. Adaptability: Videographers often work in different environments and face unexpected challenges. They possess the ability to adapt quickly to changing circumstances, troubleshoot technical issues, and make necessary adjustments to ensure successful video shoots.
 ''',
-tools: '''Videographers utilize a variety of tools and equipment to capture, edit, and produce video content.
+        tools:
+            '''Videographers utilize a variety of tools and equipment to capture, edit, and produce video content.
 
 1. Cameras: Videographers use professional-grade cameras to capture high-quality video footage. Popular camera brands include Canon, Sony, Panasonic, and Blackmagic. These cameras often offer features such as manual controls, interchangeable lenses, and various video recording formats.
 
@@ -574,15 +577,12 @@ tools: '''Videographers utilize a variety of tools and equipment to capture, edi
 8. External Monitors: External monitors provide a larger viewing area and more accurate representation of colors and details during filming. They allow videographers to monitor exposure, focus, and composition more effectively while capturing video footage.
 
 9. Video Streaming and Distribution Platforms: Videographers may utilize video streaming and distribution platforms such as YouTube, Vimeo, or Wistia to share and distribute their videos online. These platforms provide a convenient way to reach and engage with audiences.
-'''
-),
-
-
-
-Career(
+'''),
+    Career(
         title: "Interactive Designer",
         assetPath: "assets/images/creative_multimedia_img3.png",
-        overview: '''An interactive designer is a creative professional who specializes in crafting engaging and interactive digital experiences for users. They possess a unique blend of skills in design, technology, and user experience (UX) to create visually stunning and intuitive interfaces. Their work spans a wide range of digital platforms, including websites, applications, mobile experiences, interactive installations, and more.
+        overview:
+            '''An interactive designer is a creative professional who specializes in crafting engaging and interactive digital experiences for users. They possess a unique blend of skills in design, technology, and user experience (UX) to create visually stunning and intuitive interfaces. Their work spans a wide range of digital platforms, including websites, applications, mobile experiences, interactive installations, and more.
 
 Interactive designers have a deep understanding of human-computer interaction and user-centered design principles. They strive to create experiences that captivate and delight users, while also meeting the objectives of the project or client. They possess a keen eye for aesthetics, employing principles of graphic design, typography, color theory, and layout to craft visually appealing and harmonious interfaces.
 
@@ -597,7 +597,8 @@ Collaboration and communication are essential skills for interactive designers. 
 As technology and design trends continue to evolve, interactive designers embrace continuous learning. They stay up-to-date with industry advancements, attend conferences and workshops, engage in online communities, and experiment with new tools and techniques. This mindset of constant growth and exploration allows them to push the boundaries of interactive design and deliver innovative experiences.
 
 Overall, interactive designers are skilled professionals who combine creativity, technical expertise, and a deep understanding of user experience to create captivating and interactive digital experiences. They are passionate about crafting interfaces that engage users, evoke emotions, and leave a lasting impact. Their work contributes to shaping the digital landscape and enhancing the way people interact with technology.''',
-skills: '''Interactive designers possess a diverse set of skills that enable them to create engaging and interactive digital experiences
+        skills:
+            '''Interactive designers possess a diverse set of skills that enable them to create engaging and interactive digital experiences
 
 1. Visual Design: Interactive designers have a strong foundation in visual design principles. They understand typography, color theory, layout composition, and graphic design techniques to create visually appealing interfaces that communicate effectively and evoke desired emotions.
 
@@ -620,7 +621,8 @@ skills: '''Interactive designers possess a diverse set of skills that enable the
 10. Continuous Learning: Interactive designers embrace continuous learning and stay updated with the latest design trends, emerging technologies, and industry best practices. They actively seek out new design tools, attend workshops and conferences, and engage in online communities to expand their knowledge and improve their skills.
 
 These skills, combined with creativity, empathy for users, and a passion for creating interactive experiences, enable interactive designers to design and deliver engaging digital products that leave a lasting impact on users.''',
-tools: '''Interactive designers utilize a variety of tools and software to create their designs and prototypes
+        tools:
+            '''Interactive designers utilize a variety of tools and software to create their designs and prototypes
 
 1. Design Software: Interactive designers rely on design software to create visually appealing interfaces and assets. Popular design tools include Adobe Photoshop, Adobe Illustrator, Sketch, Figma, and Adobe XD. These tools offer features for creating and manipulating graphics, designing layouts, and creating interactive prototypes.
 
@@ -642,15 +644,12 @@ tools: '''Interactive designers utilize a variety of tools and software to creat
 
 10. Project Management Tools: To stay organized and manage design projects, interactive designers use project management tools such as Trello, Asana, or Jira. These tools help them track tasks, set deadlines, and communicate project progress with their teams.
 
-The specific tools used by interactive designers may vary depending on individual preferences, project requirements, and team collaboration practices. Interactive designers are constantly exploring and adopting new tools and technologies to enhance their workflow and deliver outstanding interactive designs.'''
-),
-
-
-
-Career(
+The specific tools used by interactive designers may vary depending on individual preferences, project requirements, and team collaboration practices. Interactive designers are constantly exploring and adopting new tools and technologies to enhance their workflow and deliver outstanding interactive designs.'''),
+    Career(
         title: "Motion Designer",
         assetPath: "assets/images/creative_multimedia_img4.png",
-        overview: '''A motion designer is a creative professional who specializes in creating dynamic and visually engaging motion graphics. They utilize their skills in animation, graphic design, and storytelling to bring static designs to life through movement and visual effects. Motion designers work with various software tools to create animations, visual effects, and other dynamic elements used in media such as films, television shows, advertisements, websites, and mobile applications.
+        overview:
+            '''A motion designer is a creative professional who specializes in creating dynamic and visually engaging motion graphics. They utilize their skills in animation, graphic design, and storytelling to bring static designs to life through movement and visual effects. Motion designers work with various software tools to create animations, visual effects, and other dynamic elements used in media such as films, television shows, advertisements, websites, and mobile applications.
 
 Motion designers have a solid understanding of timing, pacing, and movement principles to create smooth and captivating animations. They incorporate their knowledge of typography, color theory, composition, and visual hierarchy to design visually appealing and cohesive motion graphics. Motion designers excel in storytelling through visual means, using animation techniques, transitions, and visual metaphors to convey a story or evoke emotions.
 
@@ -659,7 +658,8 @@ They utilize software such as Adobe After Effects, Cinema 4D, Autodesk Maya, or 
 Staying up to date with industry trends, techniques, and technologies is important for motion designers. They actively seek out inspiration, attend industry conferences, and engage with online communities to learn new skills and stay ahead of emerging trends. Motion designers are adaptable and possess problem-solving skills to find creative solutions to design challenges, technical limitations, and time constraints.
 
 Overall, motion designers are creative professionals who specialize in creating dynamic and visually engaging motion graphics. They utilize animation, graphic design, and storytelling skills to bring static designs to life through movement and visual effects, creating captivating visuals that effectively communicate messages and enhance user experiences.''',
-skills: '''Motion designers possess a diverse set of skills that enable them to create visually engaging and dynamic motion graphics. 
+        skills:
+            '''Motion designers possess a diverse set of skills that enable them to create visually engaging and dynamic motion graphics. 
 
 1. Animation: Motion designers have expertise in creating animations using software like Adobe After Effects, Cinema 4D, or Autodesk Maya. They understand timing, pacing, and movement principles to create smooth and captivating animations that effectively communicate messages.
 
@@ -682,7 +682,8 @@ skills: '''Motion designers possess a diverse set of skills that enable them to 
 10. Time Management: Motion designers work on projects with specific timelines and deadlines. They possess strong time management skills to prioritize tasks, meet project milestones, and deliver high-quality work within the given timeframe.
 
 These skills, combined with a passion for creativity, storytelling, and visual communication, enable motion designers to create visually stunning and engaging motion graphics that captivate audiences and effectively convey messages.''',
-tools: '''Motion designers utilize various tools and software to create their motion graphics and animations
+        tools:
+            '''Motion designers utilize various tools and software to create their motion graphics and animations
 
 1. Animation Software: Motion designers use animation software such as Adobe After Effects, which is a widely used industry-standard tool for creating motion graphics and visual effects. Other software options include Apple Motion, Autodesk Maya, Cinema 4D, and Blender.
 
@@ -703,14 +704,12 @@ tools: '''Motion designers utilize various tools and software to create their mo
 9. Project Management and Collaboration Tools: To streamline project management and facilitate collaboration with team members, motion designers often use project management and communication tools like Trello, Asana, Slack, or Basecamp.
 
 10. Online Resources and Stock Assets: Motion designers may also leverage online resources and stock asset libraries for ready-made elements like stock footage, sound effects, pre-built templates, or motion graphics templates that can be customized and incorporated into their projects.
-'''
-),
-
-
-Career(
+'''),
+    Career(
         title: "Character Animator",
         assetPath: "assets/images/creative_multimedia_img5.png",
-        overview: '''Character Animator is a powerful software application developed by Adobe that revolutionizes the process of 2D character animation. It offers a unique and innovative approach by enabling animators to bring their characters to life in real-time through live performances and movements. The software utilizes the webcam and microphone of a computer to capture the animator's facial expressions, gestures, and voice, which are then instantly translated onto a digital character.
+        overview:
+            '''Character Animator is a powerful software application developed by Adobe that revolutionizes the process of 2D character animation. It offers a unique and innovative approach by enabling animators to bring their characters to life in real-time through live performances and movements. The software utilizes the webcam and microphone of a computer to capture the animator's facial expressions, gestures, and voice, which are then instantly translated onto a digital character.
 
 By harnessing the power of real-time animation, Character Animator provides animators with immediate visual feedback, allowing them to see their characters come to life as they perform. This real-time aspect greatly enhances the creative process, enabling animators to make adjustments and refinements on the fly, resulting in more organic and dynamic animations.
 
@@ -723,7 +722,8 @@ The software also includes features for lip syncing, allowing animators to autom
 Character Animator integrates seamlessly with other Adobe Creative Cloud applications, such as Adobe Photoshop and Adobe Illustrator. Animators can import their characters and artwork from these applications, enhancing them within Character Animator, and incorporating them into their animations seamlessly.
 
 Whether animators are professionals in the industry or beginners exploring the world of character animation, Character Animator provides a user-friendly and accessible platform. Its real-time animation capabilities, intuitive interface, and instant visual feedback make it an invaluable tool for creating engaging and captivating character animations for a wide range of purposes, including film, television, web content, advertisements, and more.''',
-skills: '''To excel in the field of character animation and effectively utilize Character Animator, animators require a range of skills
+        skills:
+            '''To excel in the field of character animation and effectively utilize Character Animator, animators require a range of skills
 
 1. Animation Principles: A solid understanding of animation principles such as timing, spacing, weight, and anticipation is crucial. Knowledge of how to create fluid and believable movements is essential for bringing characters to life using Character Animator.
 
@@ -739,7 +739,8 @@ skills: '''To excel in the field of character animation and effectively utilize 
 6.Attention to Detail: Paying attention to details is crucial in character animation. Animators should have an eye for subtle movements, expressions, and gestures that add depth and realism to their characters. Being detail-oriented ensures that animations are polished and visually appealing.
 
 These skills, combined with a passion for storytelling, creativity, and attention to detail, enable animators to create engaging and dynamic character animations using Character Animator. Continued practice and exploration of new techniques contribute to the growth and development of these skills over time.''',
-tools: '''Character Animator is the primary tool used for working with Character Animator projects. It is a software application developed by Adobe.
+        tools:
+            '''Character Animator is the primary tool used for working with Character Animator projects. It is a software application developed by Adobe.
 
 1. Adobe Creative Cloud: Character Animator is part of the Adobe Creative Cloud suite, so having access to other applications within the suite like Adobe Photoshop and Adobe Illustrator can be beneficial. These tools are often used for creating and preparing character assets before importing them into Character Animator.
 
@@ -755,14 +756,12 @@ tools: '''Character Animator is the primary tool used for working with Character
 
 7. Online Resources and Asset Libraries: Online resources, such as stock image libraries, sound effect libraries, and animation templates, can provide additional assets and inspiration for character animations. Websites like Adobe Stock, Shutterstock, or Freesound offer a wide range of assets that can be incorporated into Character Animator projects.
 
-While Character Animator is the primary tool for creating character animations, these additional tools and resources can complement the workflow and enhance the overall quality of the animations produced. The specific tools used may vary depending on individual preferences, project requirements, and available resources.'''
-),
-
-
-Career(
+While Character Animator is the primary tool for creating character animations, these additional tools and resources can complement the workflow and enhance the overall quality of the animations produced. The specific tools used may vary depending on individual preferences, project requirements, and available resources.'''),
+    Career(
         title: "Special Effect Artist",
         assetPath: "assets/images/creative_multimedia_img6.png",
-        overview: '''A special effects artist is a creative professional who brings visual elements and illusions to life in various forms of media. They create and implement special effects in films, television shows, commercials, video games, and other visual media projects. Their work involves designing and crafting visually compelling effects such as explosions, fire, smoke, creatures, and more. Special effects artists possess technical expertise in software applications and tools used in the industry, collaborate with the production team to understand project requirements, and problem-solve to overcome challenges. They continuously learn and stay updated with the latest advancements in the field to deliver high-quality effects within project timelines. Special effects artists' attention to detail and time management skills contribute to the successful integration of special effects into productions.
+        overview:
+            '''A special effects artist is a creative professional who brings visual elements and illusions to life in various forms of media. They create and implement special effects in films, television shows, commercials, video games, and other visual media projects. Their work involves designing and crafting visually compelling effects such as explosions, fire, smoke, creatures, and more. Special effects artists possess technical expertise in software applications and tools used in the industry, collaborate with the production team to understand project requirements, and problem-solve to overcome challenges. They continuously learn and stay updated with the latest advancements in the field to deliver high-quality effects within project timelines. Special effects artists' attention to detail and time management skills contribute to the successful integration of special effects into productions.
 
 Special effects artists are highly skilled professionals who specialize in creating captivating visual effects for various forms of media. They employ a combination of technical knowledge, artistic creativity, and digital tools to bring imagination to life. Their work involves designing and implementing a wide range of effects, such as explosions, weather phenomena, magical elements, and fantastical creatures.
 
@@ -775,7 +774,8 @@ Problem-solving skills are essential for special effects artists as they often e
 Special effects artists continuously learn and stay updated with the latest trends and advancements in the field. They engage in professional development activities, attend workshops, and explore new tools and techniques to refine their skills and expand their knowledge.
 
 Overall, special effects artists play a vital role in the entertainment industry, contributing to the visual spectacle and immersive experience of films, television shows, and other visual media projects. Their expertise, creativity, collaboration, problem-solving abilities, and attention to detail are key factors in creating memorable and visually captivating effects.''',
-skills: '''Special effects artists require a range of skills to excel in their profession. 
+        skills:
+            '''Special effects artists require a range of skills to excel in their profession. 
 
 1. Technical Proficiency: Special effects artists should have a strong understanding of industry-standard software applications and tools used for creating visual effects. They need to be proficient in software such as Autodesk Maya, Cinema 4D, Houdini, Adobe After Effects, Nuke, or similar programs.
 
@@ -798,7 +798,8 @@ skills: '''Special effects artists require a range of skills to excel in their p
 10. Organization and File Management: Given the complexity of special effects projects, artists need to have strong organizational skills and efficient file management practices. This ensures that project files are well-organized, easily accessible, and can be easily shared or collaborated upon with other team members.
 
 These skills, combined with a passion for creativity, technical proficiency, and a strong work ethic, contribute to the success of special effects artists in bringing stunning visual effects to life.''',
-tools: '''Special effects artists utilize a variety of tools and software applications to create their visual effects. 
+        tools:
+            '''Special effects artists utilize a variety of tools and software applications to create their visual effects. 
 
 1. Computer-Generated Imagery (CGI) Software: Special effects artists rely on CGI software to create and manipulate digital elements. Some popular software options include Autodesk Maya, Cinema 4D, Houdini, Blender, and 3ds Max. These tools provide a wide range of capabilities for modeling, texturing, rigging, animation, and rendering.
 
@@ -816,15 +817,12 @@ tools: '''Special effects artists utilize a variety of tools and software applic
 
 8. Physical Effects Tools: In addition to digital tools, special effects artists may use various physical effects tools and equipment, including pyrotechnics, animatronics, prosthetics, miniature models, and practical makeup effects. These physical tools can be combined with digital effects to create seamless and integrated visuals.
 
-It's important to note that the specific tools and software used can vary depending on the artist's preferences, project requirements, and industry standards. Special effects artists often develop their own toolkits and workflows based on their expertise and project demands.'''
-),
-
-
-
-Career(
+It's important to note that the specific tools and software used can vary depending on the artist's preferences, project requirements, and industry standards. Special effects artists often develop their own toolkits and workflows based on their expertise and project demands.'''),
+    Career(
         title: "Creative Editor",
         assetPath: "assets/images/creative_multimedia_img7.png",
-        overview: '''A creative director is a strategic leader within the creative industry who plays a crucial role in shaping and guiding the creative direction of projects or organizations. They possess a deep understanding of the creative process, market trends, and consumer preferences. With their visionary mindset and artistic expertise, creative directors inspire and motivate the creative team to produce outstanding work. They possess strong strategic thinking skills, ensuring that the creative efforts align with the project's objectives. Creative directors also excel in effective communication, building strong relationships with clients and collaborators. They stay updated with industry advancements and continuously seek opportunities for growth and innovation. Overall, creative directors bring together their artistic vision, strategic mindset, and leadership skills to drive the success of creative endeavors.
+        overview:
+            '''A creative director is a strategic leader within the creative industry who plays a crucial role in shaping and guiding the creative direction of projects or organizations. They possess a deep understanding of the creative process, market trends, and consumer preferences. With their visionary mindset and artistic expertise, creative directors inspire and motivate the creative team to produce outstanding work. They possess strong strategic thinking skills, ensuring that the creative efforts align with the project's objectives. Creative directors also excel in effective communication, building strong relationships with clients and collaborators. They stay updated with industry advancements and continuously seek opportunities for growth and innovation. Overall, creative directors bring together their artistic vision, strategic mindset, and leadership skills to drive the success of creative endeavors.
 
 Creative directors are influential leaders in the creative industry who bring together their artistic vision, strategic thinking, and leadership skills to drive successful creative projects. They have a deep understanding of the creative process and possess a strong aesthetic sense. Creative directors inspire and motivate the creative team by fostering a culture of innovation and providing guidance and support throughout the creative journey.
 
@@ -837,7 +835,8 @@ Creative directors are adaptable and embrace new technologies and trends in the 
 These individuals possess strong decision-making skills, balancing artistic vision with practical considerations. They make informed choices that enhance the overall quality of the work and contribute to the success of the project or organization. Creative directors also have a passion for continuous learning and actively seek out new trends, techniques, and technologies to stay ahead of the curve.
 
 Overall, creative directors play a pivotal role in the creative industry, leading and shaping the creative direction of projects or organizations. With their unique blend of artistic talent, strategic thinking, leadership skills, and a commitment to innovation, they drive the success of creative endeavors and deliver outstanding results.''',
-skills: '''Here are some key skills commonly associated with creative directors:
+        skills:
+            '''Here are some key skills commonly associated with creative directors:
 
 1. Creative Vision: Creative directors possess a strong creative vision and the ability to conceptualize and visualize ideas. They have a keen eye for aesthetics and can translate concepts into compelling visual designs.
 
@@ -860,7 +859,8 @@ skills: '''Here are some key skills commonly associated with creative directors:
 10. Continuous Learning: Creative directors have a thirst for knowledge and continuously seek opportunities for growth and learning. They stay updated with industry trends, attend workshops and conferences, and invest in their professional development.
 
 These skills, combined with their artistic expertise, enable creative directors to lead successful creative projects, drive innovation, and deliver outstanding results.''',
-tools: '''Creative directors work with a variety of tools and software to execute their creative vision and manage projects effectively. 
+        tools:
+            '''Creative directors work with a variety of tools and software to execute their creative vision and manage projects effectively. 
 
 1. Design Software: Creative directors often work with industry-standard design software such as Adobe Creative Suite (including Photoshop, Illustrator, InDesign), Sketch, Figma, or other similar tools. These software programs are used for creating and manipulating visual assets, designing layouts, and developing creative concepts.
 
@@ -878,16 +878,12 @@ tools: '''Creative directors work with a variety of tools and software to execut
 
 8. Trend Research and Inspiration Tools: Creative directors often explore various sources for inspiration and trend research. They may use platforms like Behance, Dribbble, Pinterest, or design blogs to stay updated on the latest design trends, industry news, and creative inspiration.
 
-It's important to note that the specific tools and software used by creative directors can vary depending on their industry, project requirements, and personal preferences. They continuously adapt and explore new tools and technologies to enhance their creative processes and deliver impactful results.'''
-),
-
-
-
-
-Career(
+It's important to note that the specific tools and software used by creative directors can vary depending on their industry, project requirements, and personal preferences. They continuously adapt and explore new tools and technologies to enhance their creative processes and deliver impactful results.'''),
+    Career(
         title: "VXF Artist",
         assetPath: "assets/images/creative_multimedia_img8.png",
-        overview: '''A VFX artist is a professional who specializes in creating computer-generated imagery (CGI) and integrating it into live-action footage or generating entirely computer-generated scenes for various media productions. They play a crucial role in enhancing visual storytelling and creating captivating visual experiences for the audience. Using advanced software and techniques, VFX artists create realistic or fantastical visual effects, animate 3D models, composite CGI elements with live-action footage, and solve technical challenges to achieve the desired visual results. They collaborate closely with directors, producers, and other members of the creative team to bring the director's vision to life. With their attention to detail and continuous learning mindset, VFX artists stay updated with the latest industry advancements and strive for excellence in their craft.
+        overview:
+            '''A VFX artist is a professional who specializes in creating computer-generated imagery (CGI) and integrating it into live-action footage or generating entirely computer-generated scenes for various media productions. They play a crucial role in enhancing visual storytelling and creating captivating visual experiences for the audience. Using advanced software and techniques, VFX artists create realistic or fantastical visual effects, animate 3D models, composite CGI elements with live-action footage, and solve technical challenges to achieve the desired visual results. They collaborate closely with directors, producers, and other members of the creative team to bring the director's vision to life. With their attention to detail and continuous learning mindset, VFX artists stay updated with the latest industry advancements and strive for excellence in their craft.
 
 VFX artists are highly skilled professionals who bring imagination and technical expertise together to create stunning visual effects for films, television shows, commercials, and other media productions. They have a deep understanding of computer graphics, animation principles, and visual storytelling. VFX artists utilize advanced software and tools to create and manipulate digital assets, including 3D models, textures, and simulations.
 
@@ -900,7 +896,8 @@ Collaboration is a key aspect of a VFX artist's role. They work closely with dir
 VFX artists stay updated with the latest advancements in technology and software to enhance their capabilities. They continually refine their skills, explore new techniques, and learn from industry trends and best practices.
 
 Overall, VFX artists are passionate professionals who combine their artistic and technical skills to create breathtaking visual effects. They contribute to the overall visual aesthetic of a production, adding depth, realism, and fantastical elements that enhance the storytelling and captivate the audience.''',
-skills: '''Here are some key skills commonly associated with VFX artists:
+        skills:
+            '''Here are some key skills commonly associated with VFX artists:
 
 1. Computer Graphics: VFX artists have a strong foundation in computer graphics, including knowledge of modeling, texturing, lighting, and rendering. They understand how to create and manipulate digital assets to achieve the desired visual effects.
 
@@ -923,7 +920,8 @@ skills: '''Here are some key skills commonly associated with VFX artists:
 10. Adaptability: VFX artists are adaptable and can work across various styles, genres, and project requirements. They can adjust their techniques and approaches to suit the specific needs of each project, whether it involves realistic effects, sci-fi elements, or fantastical creatures.
 
 These skills, combined with a strong artistic sensibility and a passion for visual storytelling, enable VFX artists to create captivating and immersive visual effects for a wide range of media productions.''',
-tools: '''VFX artists work with a variety of tools and software to create stunning visual effects.
+        tools:
+            '''VFX artists work with a variety of tools and software to create stunning visual effects.
 
 1. 3D Modeling and Animation: VFX artists utilize software such as Autodesk Maya, Cinema 4D, or Blender for creating and animating 3D models. These tools allow them to sculpt, texture, rig, and animate objects and characters.
 
@@ -945,8 +943,7 @@ tools: '''VFX artists work with a variety of tools and software to create stunni
 
 10. Collaboration and Project Management: VFX artists may use project management and collaboration tools like Shotgun, Trello, or Microsoft Teams to organize their work, track tasks, communicate with team members, and collaborate on projects efficiently.
 
-It's important to note that the specific tools and software used by VFX artists can vary depending on the project requirements, studio preferences, and individual artist's expertise. VFX artists continuously explore new tools, plugins, and technologies to enhance their creative capabilities and deliver exceptional visual effects.'''
-),
+It's important to note that the specific tools and software used by VFX artists can vary depending on the project requirements, studio preferences, and individual artist's expertise. VFX artists continuously explore new tools, plugins, and technologies to enhance their creative capabilities and deliver exceptional visual effects.'''),
   ],
 };
 
@@ -1018,4 +1015,16 @@ List<Question> questions = [
     optionD: "d.Greek",
     correctAnswer: "a. Latin",
   ),
+];
+
+List<String> internshipRegions = [
+  "NONE",
+  "GREATER ACCRA",
+  "ASHANTI",
+  "CENRAL",
+  "BONO",
+  "BONO EAST",
+  "EASTERN",
+  "VOLTA",
+  "WESTERN",
 ];
