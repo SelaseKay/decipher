@@ -22,11 +22,11 @@ class _MainContainerState extends State<MainContainer> {
     });
   }
 
-  final List<Widget> _screens = const [
-    HomeScreen(),
-    NewsScreen(),
+  final List<Widget> _screens =  [
+    const HomeScreen(),
+    const NewsScreen(),
     TaskScreen(),
-    ProfileScreen(),
+    const ProfileScreen(),
   ];
 
   _getAppbarTitle() {

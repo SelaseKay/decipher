@@ -6,6 +6,7 @@ import 'package:decipher/screens/career_paths_screen.dart';
 import 'package:decipher/screens/internship_screen.dart';
 import 'package:decipher/screens/majors_screen.dart';
 import 'package:decipher/screens/overview_screen.dart';
+import 'package:decipher/screens/quiz_home_screen.dart';
 import 'package:decipher/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -180,6 +181,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 color: const Color(0xFF00BFA6),
                 text: "Career Path",
+              ),
+              const SizedBox(width: 14.0,),
+              CategoryItem(
+                size: categoryItemSize,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const QuizzesHomeScreen(),
+                    ),
+                  );
+                },
+                color: const Color(0xFFE57225),
+                text: "Quizzes",
               ),
             ],
           ),

@@ -53,45 +53,63 @@ class CareerPathsScreen extends StatelessWidget {
               ),
               color: Colors.white,
             ),
-            child: Row(children: [
-              Container(
-                height: 80.0,
-                width: 80.0,
-                clipBehavior: Clip.hardEdge,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10.0),
+            child: Column(
+              children: [
+                Row(children: [
+                  Container(
+                    height: 80.0,
+                    width: 80.0,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
+                    ),
+                    child: Image.asset(
+                      "assets/images/trending_img.png",
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                child: Image.asset(
-                  "assets/images/trending_img.png",
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(
-                width: 12.0,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Trending",
-                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                          fontWeight: FontWeight.w600,
-                          color: const Color(0xFF212121),
-                        ),
+                  const SizedBox(
+                    width: 12.0,
                   ),
-                  Text(
-                    "UI/UX Designer",
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16.0,
-                          color: const Color(0xFFF9A826),
-                        ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Trending",
+                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                              fontWeight: FontWeight.w600,
+                              color: const Color(0xFF212121),
+                            ),
+                      ),
+                      Text(
+                        "UI/UX Designer",
+                        style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 16.0,
+                              color: const Color(0xFFF9A826),
+                            ),
+                      ),
+                      
+                    ],
                   )
-                ],
-              )
-            ]),
+                ]),
+                const SizedBox(height: 4.0,),
+                const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CaroselItem(isActive: true,),
+                      SizedBox(width: 7.0,),
+                      CaroselItem(),
+                      SizedBox(width: 7.0,),
+                      CaroselItem(),
+                      SizedBox(width: 7.0,),CaroselItem(),
+                      SizedBox(width: 7.0,)
+                    ],
+                  )
+              ],
+            ),
           ),
           const SizedBox(
             height: 22.0,
@@ -124,7 +142,7 @@ class CareerPathsScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  text: "Visual com",
+                  text: "Visual communication",
                   assetPath: "assets/images/pathway_img1.png",
                   cardColor: const Color(0xFF6C63FF),
                 ),
@@ -143,7 +161,7 @@ class CareerPathsScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  text: "Ads & Media",
+                  text: "Advertising",
                   assetPath: "assets/images/pathway_img2.png",
                   cardColor: const Color(0xFFF9A826),
                 ),
@@ -225,6 +243,32 @@ class CareerPathsScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+
+class CaroselItem extends StatelessWidget {
+  const CaroselItem({
+    super.key,
+     this.isActive = false,
+  });
+
+
+  final bool isActive;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 14.0,
+      width: 14.0,
+      decoration: BoxDecoration(
+          border: Border.all(color: const Color(0xFF0E336A)),
+          color:
+              isActive ? const Color(0xFF0E336A) : Colors.white,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(7.0),
+          )),
     );
   }
 }

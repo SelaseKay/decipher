@@ -29,7 +29,7 @@ class AnswerCard extends StatelessWidget {
             title,
             style: Theme.of(context).textTheme.labelLarge?.copyWith(
                   fontSize: 42.0,
-                  fontWeight: FontWeight.w100,
+                  fontWeight: FontWeight.w400,
                   color: Colors.white,
                 ),
           ),

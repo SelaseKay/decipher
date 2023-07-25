@@ -108,6 +108,7 @@ class NewsFeedDetailsScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.labelMedium?.copyWith(
                           fontWeight: FontWeight.w400,
                           color: Colors.black,
+                          fontSize: 14.0
                         ),
                   ),
                 ],

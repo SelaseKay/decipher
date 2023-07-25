@@ -1,6 +1,6 @@
 import 'package:decipher/componenets/custom_stepper.dart';
-import 'package:decipher/screens/main_container.dart';
 import 'package:decipher/screens/onboarding/onboarding_child.dart';
+import 'package:decipher/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainOnboardingScreen extends StatefulWidget {
@@ -34,10 +34,10 @@ class _MainOnboardingScreenState extends State<MainOnboardingScreen> {
               width: 50.0,
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const MainContainer(),
+                      builder: (context) => const SignInScreen(),
                     ),
                   );
                 },
@@ -110,10 +110,10 @@ class _MainOnboardingScreenState extends State<MainOnboardingScreen> {
                   ),
                   onPressed: () async {
                     if (_currentIndex == 3) {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const MainContainer(),
+                          builder: (context) => const SignInScreen(),
                         ),
                       );
                       return;

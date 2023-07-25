@@ -2,6 +2,7 @@ import 'package:decipher/componenets/auth_button.dart';
 import 'package:decipher/componenets/auth_text_fields.dart';
 import 'package:decipher/componenets/custom_rich_text.dart';
 import 'package:decipher/componenets/third_party_auth_button.dart';
+import 'package:decipher/screens/main_container.dart';
 import 'package:decipher/screens/sign_up_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +78,14 @@ class SignInScreen extends StatelessWidget {
             ),
             AuthButton(
               text: "Sign-in",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MainContainer(),
+                    ),
+                  );
+              },
             ),
             const SizedBox(
               height: 20.0,
@@ -142,7 +150,7 @@ class SignInScreen extends StatelessWidget {
                 regularText: "Don't have an account? ",
                 pressableText: "Sign up",
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const SignUpScreen(),

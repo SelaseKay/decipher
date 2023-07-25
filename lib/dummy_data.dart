@@ -167,6 +167,36 @@ Book designers may be skilled in using design software such as Adobe InDesign, I
 7. Printing and Production Tools: Book designers coordinate with printing and production teams. Software such as Adobe InDesign or specialized prepress software provides options for specifying print parameters, color profiles, and ensuring accurate output during the printing process.
 ''',
     ),
+
+
+     Career(
+      title: "Photography",
+      assetPath: "assets/images/career_path_img8.png",
+      overview:
+          '''A photographer is a trained professional who records images using a camera, special lights, and other tools to enhance their subject. Photographers tend to fall into one of four categories: commercial, fashion, journalistic, and fine art. Commercial photographers work for businesses and often take photographs of products for use in catalogs, on websites, or other purposes. They might also have businesses that focus on, or feature, portraiture, including wedding photographs.
+Photography is a highly creative and rewarding profession that involves capturing and documenting moments, scenes, and subjects through the lens of a camera. Photographers use their technical skills, artistic vision, and knowledge of equipment to produce visually compelling images that evoke emotions, convey stories, or provide information.
+
+As a professional photographer, you would typically specialize in a specific area or genre and build a portfolio to showcase your skills and style. You may work as a freelancer, owning your own business, or be employed by media organizations, advertising agencies, or photography studios.
+Photographers use various techniques, equipment, and editing software to create visually appealing and meaningful images. They often work with clients to understand their requirements, manage lighting and composition, and direct subjects during photoshoots.
+Aside from technical expertise, successful photographers also need creativity, a strong eye for detail, and the ability to capture unique perspectives. They must keep up with industry trends, market their work, and continuously develop their skills.
+It's important to note that photography as a profession can be highly competitive and demanding. It requires dedication, perseverance, and the ability to adapt to changing technologies and client preferences. However, it can also be a rewarding and fulfilling career for those passionate about visual storytelling and capturing moments in time.''',
+      skills:
+          '''1. Hand-eye coordination: Precise control over the camera and its settings, including adjusting focus, aperture, and shutter speed, requires good hand-eye coordination.
+2. Manual dexterity: Operating camera controls, adjusting lenses, and handling other equipment demands nimble fingers and fine motor skills.
+3. Stamina: Photographers often spend long hours on their feet during photoshoots, carrying heavy camera gear and moving around to capture shots from different angles. Endurance and physical stamina are necessary for such situations.
+4. Visual acuity: Having sharp vision to accurately assess lighting, composition, and focus is crucial for capturing high-quality photographs.
+5. Agility: In certain photography genres like sports or wildlife photography, quick reflexes and agility are vital to capture fast-moving subjects or dynamic moments.
+6. Depth perception: Understanding and representing depth in images requires the ability to perceive spatial relationships accurately.''',
+      tools:
+          '''1.Camera: The primary tool of a photographer, cameras come in different types, such as DSLR (Digital Single Lens Reflex), mirrorless, or film cameras. They capture images through lenses and offer manual control over settings like aperture, shutter speed, and ISO.
+2. Lenses: Interchangeable lenses allow photographers to achieve different focal lengths, perspectives, and levels of zoom. Common lens types include wide-angle, standard, telephoto, and macro lenses.
+3. Tripod: A stable support system that helps eliminate camera shake, especially in low-light situations or for long exposures. Tripods provide stability for capturing sharp images.
+4. Lighting Equipment: Depending on the genre, photographers may require additional lighting equipment like studio strobes, continuous lights, reflectors, or diffusers to control and shape light in their shots.
+5. Memory Cards: Used to store digital images captured by the camera. High-capacity memory cards ensure photographers can capture a large number of images without running out of space.
+6. Editing Software: Post-processing is an essential part of modern photography. Software like Adobe Photoshop, Lightroom, or Capture One allows photographers to enhance images, adjust colors, correct exposure, and apply artistic effects.
+7. Computer and Storage: A computer is necessary for image editing and management. Adequate storage devices like external hard drives or cloud storage are essential for backing up and archiving photographs.
+8. Accessories: Various accessories such as lens filters, camera bags, remote shutter releases, lens cleaning kits, and extra camera batteries are valuable tools that enhance a photographer's workflow and protect their equipment.''',
+    ),
   ],
   CareerType.adsAndMedia: const [
     Career(
@@ -209,34 +239,7 @@ In addition to writing skills, copywriters possess a strong understanding of mar
 7. Communication and Collaboration Tools: Copywriters use communication and collaboration tools like email, messaging apps (Slack, Microsoft Teams), and video conferencing platforms (Zoom, Google Meet) to communicate with clients, collaborate with team members, and receive feedback on their work.
 ''',
     ),
-    Career(
-      title: "Photography",
-      assetPath: "assets/images/career_path_img8.png",
-      overview:
-          '''A photographer is a trained professional who records images using a camera, special lights, and other tools to enhance their subject. Photographers tend to fall into one of four categories: commercial, fashion, journalistic, and fine art. Commercial photographers work for businesses and often take photographs of products for use in catalogs, on websites, or other purposes. They might also have businesses that focus on, or feature, portraiture, including wedding photographs.
-Photography is a highly creative and rewarding profession that involves capturing and documenting moments, scenes, and subjects through the lens of a camera. Photographers use their technical skills, artistic vision, and knowledge of equipment to produce visually compelling images that evoke emotions, convey stories, or provide information.
-
-As a professional photographer, you would typically specialize in a specific area or genre and build a portfolio to showcase your skills and style. You may work as a freelancer, owning your own business, or be employed by media organizations, advertising agencies, or photography studios.
-Photographers use various techniques, equipment, and editing software to create visually appealing and meaningful images. They often work with clients to understand their requirements, manage lighting and composition, and direct subjects during photoshoots.
-Aside from technical expertise, successful photographers also need creativity, a strong eye for detail, and the ability to capture unique perspectives. They must keep up with industry trends, market their work, and continuously develop their skills.
-It's important to note that photography as a profession can be highly competitive and demanding. It requires dedication, perseverance, and the ability to adapt to changing technologies and client preferences. However, it can also be a rewarding and fulfilling career for those passionate about visual storytelling and capturing moments in time.''',
-      skills:
-          '''1. Hand-eye coordination: Precise control over the camera and its settings, including adjusting focus, aperture, and shutter speed, requires good hand-eye coordination.
-2. Manual dexterity: Operating camera controls, adjusting lenses, and handling other equipment demands nimble fingers and fine motor skills.
-3. Stamina: Photographers often spend long hours on their feet during photoshoots, carrying heavy camera gear and moving around to capture shots from different angles. Endurance and physical stamina are necessary for such situations.
-4. Visual acuity: Having sharp vision to accurately assess lighting, composition, and focus is crucial for capturing high-quality photographs.
-5. Agility: In certain photography genres like sports or wildlife photography, quick reflexes and agility are vital to capture fast-moving subjects or dynamic moments.
-6. Depth perception: Understanding and representing depth in images requires the ability to perceive spatial relationships accurately.''',
-      tools:
-          '''1.Camera: The primary tool of a photographer, cameras come in different types, such as DSLR (Digital Single Lens Reflex), mirrorless, or film cameras. They capture images through lenses and offer manual control over settings like aperture, shutter speed, and ISO.
-2. Lenses: Interchangeable lenses allow photographers to achieve different focal lengths, perspectives, and levels of zoom. Common lens types include wide-angle, standard, telephoto, and macro lenses.
-3. Tripod: A stable support system that helps eliminate camera shake, especially in low-light situations or for long exposures. Tripods provide stability for capturing sharp images.
-4. Lighting Equipment: Depending on the genre, photographers may require additional lighting equipment like studio strobes, continuous lights, reflectors, or diffusers to control and shape light in their shots.
-5. Memory Cards: Used to store digital images captured by the camera. High-capacity memory cards ensure photographers can capture a large number of images without running out of space.
-6. Editing Software: Post-processing is an essential part of modern photography. Software like Adobe Photoshop, Lightroom, or Capture One allows photographers to enhance images, adjust colors, correct exposure, and apply artistic effects.
-7. Computer and Storage: A computer is necessary for image editing and management. Adequate storage devices like external hard drives or cloud storage are essential for backing up and archiving photographs.
-8. Accessories: Various accessories such as lens filters, camera bags, remote shutter releases, lens cleaning kits, and extra camera batteries are valuable tools that enhance a photographer's workflow and protect their equipment.''',
-    ),
+   
     Career(
       title: "Sales & Marketing",
       assetPath: "assets/images/ads_and_media_img2.png",
