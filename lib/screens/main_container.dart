@@ -71,7 +71,9 @@ class _MainContainerState extends State<MainContainer> {
                           color: Colors.white,
                         ),
                         onPressed: () {
-                          Navigator.of(context).pop();
+                          setState(() {
+                            _selectedIndex = 0;
+                          });
                         },
                       ),
                 actions: _selectedIndex == 0
