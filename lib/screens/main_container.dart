@@ -43,92 +43,103 @@ class _MainContainerState extends State<MainContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFfECF4FF),
-      appBar: _selectedIndex == 3
-          ? null
-          : AppBar(
-              centerTitle: true,
-              leading: _selectedIndex == 0
-                  ? SvgPicture.asset(
-                      "assets/images/logo.svg",
-                      height: 60.0,
-                      width: 60.0,
-                    )
-                  : IconButton(
-                      icon: const Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-              actions: _selectedIndex == 0
-                  ? [
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const NotificationsScreen(),
-                            ),
-                          );
-                        },
-                        child: SvgPicture.asset(
-                          "assets/images/alarm_icon.svg",
-                          height: 24.0,
-                          width: 24.0,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 16.0,
+    return WillPopScope(
+      onWillPop: (){
+        if(_selectedIndex != 0){
+          setState(() {
+            _selectedIndex = 0;
+          });
+          return Future.value(false);
+        }
+        return Future.value(true);
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xFfECF4FF),
+        appBar: _selectedIndex == 3
+            ? null
+            : AppBar(
+                centerTitle: true,
+                leading: _selectedIndex == 0
+                    ? SvgPicture.asset(
+                        "assets/images/logo.svg",
+                        height: 60.0,
+                        width: 60.0,
                       )
-                    ]
-                  : null,
-              backgroundColor: Theme.of(context).primaryColor,
-              title: Text(
-                _getAppbarTitle(),
-                style: Theme.of(context).textTheme.labelLarge,
+                    : IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                actions: _selectedIndex == 0
+                    ? [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const NotificationsScreen(),
+                              ),
+                            );
+                          },
+                          child: SvgPicture.asset(
+                            "assets/images/alarm_icon.svg",
+                            height: 24.0,
+                            width: 24.0,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 16.0,
+                        )
+                      ]
+                    : null,
+                backgroundColor: Theme.of(context).primaryColor,
+                title: Text(
+                  _getAppbarTitle(),
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
               ),
+        body: _screens.elementAt(_selectedIndex),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: const Color(0xFFF3F3F3),
+          unselectedItemColor: const Color(0xFFB8B8B8),
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+              ),
+              label: 'Home',
             ),
-      body: _screens.elementAt(_selectedIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: const Color(0xFFF3F3F3),
-        unselectedItemColor: const Color(0xFFB8B8B8),
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.newspaper,
+              ),
+              label: 'News',
             ),
-            label: 'Home',
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.bookmark,
+              ),
+              label: 'Task',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person_rounded,
+              ),
+              label: 'Profile',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Theme.of(context).primaryColor,
+          selectedIconTheme: IconThemeData(
+            color: Theme.of(context).primaryColor,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.newspaper,
-            ),
-            label: 'News',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.bookmark,
-            ),
-            label: 'Task',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_rounded,
-            ),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Theme.of(context).primaryColor,
-        selectedIconTheme: IconThemeData(
-          color: Theme.of(context).primaryColor,
+          onTap: _onItemTapped,
         ),
-        onTap: _onItemTapped,
       ),
     );
   }
