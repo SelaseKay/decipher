@@ -29,7 +29,7 @@ class NewsFeedDetailsScreen extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          Image.asset(
+              Image.asset(
             newsItems[newsId].img,
             fit: BoxFit.cover,
             width: double.infinity,
@@ -37,86 +37,186 @@ class NewsFeedDetailsScreen extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              height: bodyHeight,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30.0),
-                  topRight: Radius.circular(30.0),
-                ),
-                color: Colors.white,
-              ),
-              child: ListView(
-                padding: const EdgeInsets.only(
-                  right: 20.0,
-                  left: 20.0,
-                  bottom: 16.0,
-                ),
-                children: [
-                  const SizedBox(
-                    height: 4.0,
-                  ),
-                  Text(
-                    newsItems[newsId].title,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                          fontWeight: FontWeight.w500,
-                          color: Colors.black,
+            child: DraggableScrollableSheet(
+              initialChildSize: 0.7,
+              minChildSize: 0.7,
+              builder: (BuildContext context, ScrollController scrollController) {
+                         return Container(
+                          height: bodyHeight,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30.0),
+                          topRight: Radius.circular(30.0),
                         ),
-                  ),
-                  const SizedBox(
-                    height: 12.0,
-                  ),
-                  const Divider(
-                    height: 0.2,
-                    color: Color(0xFF353535),
-                  ),
-                  const SizedBox(
-                    height: 12.0,
-                  ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.schedule,
-                        size: 16.0,
+                        color: Colors.white,
                       ),
-                      const SizedBox(
-                        width: 16.0,
-                      ),
-                      Text(
-                        newsItems[newsId].date,
-                        style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                              fontSize: 12.0,
-                              fontWeight: FontWeight.w500,
+                      child:  ListView(
+                        controller: scrollController,
+                            padding: const EdgeInsets.only(
+                              right: 20.0,
+                              left: 20.0,
+                              bottom: 16.0,
                             ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 12.0,
-                  ),
-                  const Divider(
-                    height: 0.2,
-                    color: Color(0xFF353535),
-                  ),
-                  const SizedBox(
-                    height: 12.0,
-                  ),
-                  Text(
-                    newsItems[newsId].details,
-                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
-                          fontSize: 14.0
-                        ),
-                  ),
-                ],
-              ),
+                            children: [
+                              const SizedBox(
+                                height: 4.0,
+                              ),
+                              Text(
+                                newsItems[newsId].title,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                              ),
+                              const SizedBox(
+                                height: 12.0,
+                              ),
+                              const Divider(
+                                height: 0.2,
+                                color: Color(0xFF353535),
+                              ),
+                              const SizedBox(
+                                height: 12.0,
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.schedule,
+                                    size: 16.0,
+                                  ),
+                                  const SizedBox(
+                                    width: 16.0,
+                                  ),
+                                  Text(
+                                    newsItems[newsId].date,
+                                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  )
+                                ],
+                              ),
+                              const SizedBox(
+                                height: 12.0,
+                              ),
+                              const Divider(
+                                height: 0.2,
+                                color: Color(0xFF353535),
+                              ),
+                              const SizedBox(
+                                height: 12.0,
+                              ),
+                              Text(
+                                newsItems[newsId].details,
+                                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black,
+                                      fontSize: 14.0
+                                    ),
+                              ),
+                            ],
+                      ),
+                );
+              },
             ),
-          )
+          ),
         ],
       ),
+      // body: Column(
+      //   children: [
+      //     Image.asset(
+      //       newsItems[newsId].img,
+      //       fit: BoxFit.cover,
+      //       width: double.infinity,
+      //       height: imageHeight,
+      //     ),
+      //     Expanded(
+      //       child: DraggableScrollableSheet(
+      //         builder: (context, scrollController) {
+      //           return Container(
+      //                 height: bodyHeight,
+      //                 decoration: const BoxDecoration(
+      //                   borderRadius: BorderRadius.only(
+      //                     topLeft: Radius.circular(30.0),
+      //                     topRight: Radius.circular(30.0),
+      //                   ),
+      //                   color: Colors.white,
+      //                 ),
+      //                 child:  ListView(
+      //                       padding: const EdgeInsets.only(
+      //                         right: 20.0,
+      //                         left: 20.0,
+      //                         bottom: 16.0,
+      //                       ),
+      //                       children: [
+      //                         const SizedBox(
+      //                           height: 4.0,
+      //                         ),
+      //                         Text(
+      //                           newsItems[newsId].title,
+      //                           textAlign: TextAlign.center,
+      //                           style: Theme.of(context).textTheme.labelLarge?.copyWith(
+      //                                 fontWeight: FontWeight.w500,
+      //                                 color: Colors.black,
+      //                               ),
+      //                         ),
+      //                         const SizedBox(
+      //                           height: 12.0,
+      //                         ),
+      //                         const Divider(
+      //                           height: 0.2,
+      //                           color: Color(0xFF353535),
+      //                         ),
+      //                         const SizedBox(
+      //                           height: 12.0,
+      //                         ),
+      //                         Row(
+      //                           crossAxisAlignment: CrossAxisAlignment.center,
+      //                           children: [
+      //                             const Icon(
+      //                               Icons.schedule,
+      //                               size: 16.0,
+      //                             ),
+      //                             const SizedBox(
+      //                               width: 16.0,
+      //                             ),
+      //                             Text(
+      //                               newsItems[newsId].date,
+      //                               style: Theme.of(context).textTheme.labelSmall?.copyWith(
+      //                                     fontSize: 12.0,
+      //                                     fontWeight: FontWeight.w500,
+      //                                   ),
+      //                             )
+      //                           ],
+      //                         ),
+      //                         const SizedBox(
+      //                           height: 12.0,
+      //                         ),
+      //                         const Divider(
+      //                           height: 0.2,
+      //                           color: Color(0xFF353535),
+      //                         ),
+      //                         const SizedBox(
+      //                           height: 12.0,
+      //                         ),
+      //                         Text(
+      //                           newsItems[newsId].details,
+      //                           style: Theme.of(context).textTheme.labelMedium?.copyWith(
+      //                                 fontWeight: FontWeight.w400,
+      //                                 color: Colors.black,
+      //                                 fontSize: 14.0
+      //                               ),
+      //                         ),
+      //                       ],
+      //                 ),
+      //           );
+      //         }
+      //       ),
+      //     )
+      //   ],
+      // ),
     );
   }
 }
