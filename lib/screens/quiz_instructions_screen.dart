@@ -221,11 +221,11 @@ class QuizInstructionScreen extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const QuizScreen(
-                          course: "visual_communication",
+                          course: "Visual Communication",
                         ),
                       ),
                     );

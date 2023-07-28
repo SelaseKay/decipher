@@ -2,6 +2,7 @@ import 'package:decipher/componenets/progress_indicator.dart';
 import 'package:decipher/componenets/timer_text.dart';
 import 'package:decipher/db/database_helper.dart';
 import 'package:decipher/model/question.dart';
+import 'package:decipher/model/quiz.dart';
 import 'package:decipher/screens/quiz_result_screen.dart';
 import 'package:decipher/screens/quizzes_container.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,11 @@ class _QuizScreenState extends State<QuizScreen> {
     super.initState();
     questions = DatabaseHelper.instance.getQuestions(
       "quiz.db",
-      widget.course,
+      widget.course == "Visual Communication"
+          ? "visual_communication"
+          : (widget.course == "Creative Multimedia"
+              ? "creative_multimedia"
+              : "advertising"),
     );
   }
 
@@ -93,7 +98,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                 print("Time is up");
                                 int totalScore = _scores.reduce(
                                     (value, element) => value + element);
-                                 Fluttertoast.showToast(
+                                Fluttertoast.showToast(
                                     msg: "Oops, You've run out of time!",
                                     toastLength: Toast.LENGTH_LONG,
                                     gravity: ToastGravity.CENTER,
@@ -208,16 +213,23 @@ class _QuizScreenState extends State<QuizScreen> {
                             if (_currentIndex + 1 == snapshot.data!.length) {
                               int totalScore = _scores
                                   .reduce((value, element) => value + element);
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => QuizResultScreen(
-                                    course: widget.course,
-                                    scores: totalScore,
-                                    totalQuestionNumber: snapshot.data!.length,
+                              await DatabaseHelper.instance.closeDb();
+                              await DatabaseHelper.instance.insertQuiz(Quiz(
+                                  title: widget.course,
+                                  score: totalScore / snapshot.data!.length));
+                              if (context.mounted) {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => QuizResultScreen(
+                                      course: widget.course,
+                                      scores: totalScore,
+                                      totalQuestionNumber:
+                                          snapshot.data!.length,
+                                    ),
                                   ),
-                                ),
-                              );
+                                );
+                              }
                             }
                             await _controller.nextPage(
                               duration: const Duration(microseconds: 200),
@@ -246,5 +258,11 @@ class _QuizScreenState extends State<QuizScreen> {
             );
           }),
     );
+  }
+
+  @override
+  void dispose() {
+    DatabaseHelper.instance.closeDb();
+    super.dispose();
   }
 }

@@ -26,6 +26,12 @@ class _InternshipScreenState extends State<InternshipScreen> {
   List<Company> shortlistedCompany = [];
 
   @override
+  void dispose() {
+    DatabaseHelper.instance.closeDb();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFfECF4FF),

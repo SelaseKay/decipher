@@ -7,6 +7,8 @@ class CustomRichText extends StatelessWidget {
     required this.pressableText,
     required this.regularText,
     required this.onPressed,
+
+
   });
 
   final String regularText;

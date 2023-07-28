@@ -7,11 +7,13 @@ class RecentQuizzesCard extends StatelessWidget {
     required this.color,
     required this.title,
     required this.assetPath,
+    required this.percent,
   });
 
   final Color color;
   final String title;
   final String assetPath;
+  final double percent;
 
   @override
   Widget build(BuildContext context) {
@@ -67,14 +69,16 @@ class RecentQuizzesCard extends StatelessWidget {
             ),
             CircularPercentIndicator(
               radius: 31.0,
-              center: Text("55%", style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.normal,
-                fontSize: 20.0
-              ),),
+              center: Text(
+                "${(percent * 100).round()}%",
+                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 20.0),
+              ),
               progressColor: Colors.white,
               backgroundWidth: 5.0,
-              percent: 0.55,
+              percent: percent,
             )
           ],
         ),

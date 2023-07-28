@@ -5,10 +5,12 @@ class AuthButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
+    this.isLoading = false,
   });
 
   final String text;
   final VoidCallback onPressed;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class AuthButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: Text(
+      child: isLoading ? const CircularProgressIndicator(color: Colors.white,) : Text(
         text,
         style: Theme.of(context).textTheme.labelMedium?.copyWith(
           color: Colors.white

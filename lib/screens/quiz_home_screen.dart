@@ -1,11 +1,44 @@
 import 'package:decipher/componenets/h_quiz_card.dart';
 import 'package:decipher/componenets/recent_quizzes_card.dart';
+import 'package:decipher/db/database_helper.dart';
+import 'package:decipher/model/quiz.dart';
 import 'package:decipher/screens/quiz_instructions_screen.dart';
 import 'package:decipher/screens/quiz_screen.dart';
 import 'package:flutter/material.dart';
 
-class QuizzesHomeScreen extends StatelessWidget {
+class QuizzesHomeScreen extends StatefulWidget {
   const QuizzesHomeScreen({super.key});
+
+  @override
+  State<QuizzesHomeScreen> createState() => _QuizzesHomeScreenState();
+}
+
+class _QuizzesHomeScreenState extends State<QuizzesHomeScreen>
+    with WidgetsBindingObserver {
+  Color _getRecentQuizCardColor(String course) {
+    if (course == "Visual Communication") {
+      return const Color(0xFF00BFA6);
+    } else if (course == "Creative Multimedia") {
+      return const Color(0xFF6C63FF);
+    }
+    return const Color(0xFFF9A826);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        setState(() {});
+        break;
+      default:
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +75,7 @@ class QuizzesHomeScreen extends StatelessWidget {
             topRight: Radius.circular(40.0),
           ),
         ),
-        child: ListView(
+        child: Column(
           children: [
             const SizedBox(
               height: 15.0,
@@ -105,13 +138,18 @@ class QuizzesHomeScreen extends StatelessWidget {
             const SizedBox(
               height: 26.0,
             ),
-            Text(
-              "Quizzes",
-              style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    color: Colors.black,
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w600,
-                  ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Quizzes",
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: Colors.black,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+              ],
             ),
             const SizedBox(
               height: 14.0,
@@ -125,6 +163,7 @@ class QuizzesHomeScreen extends StatelessWidget {
                     color: const Color(0xFF00BFA6),
                     title: "Visual\nCommunication",
                     onPressed: () {
+                      DatabaseHelper.instance.closeDb();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -141,11 +180,12 @@ class QuizzesHomeScreen extends StatelessWidget {
                     color: const Color(0xFF6C63FF),
                     title: "Creative\nMultimedia",
                     onPressed: () {
+                      DatabaseHelper.instance.closeDb();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const QuizScreen(
-                            course: "creative_multimedia",
+                            course: "Creative Multimedia",
                           ),
                         ),
                       );
@@ -159,12 +199,12 @@ class QuizzesHomeScreen extends StatelessWidget {
                     color: const Color(0xFFF9A826),
                     title: "Advertising\n& Media",
                     onPressed: () {
-                      print("advertising card click");
-                       Navigator.push(
+                      DatabaseHelper.instance.closeDb();
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const QuizScreen(
-                            course: "advertising",
+                            course: "Advertising & Media",
                           ),
                         ),
                       );
@@ -178,25 +218,60 @@ class QuizzesHomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 27.0),
-            Text(
-              "Recent quizzes",
-              style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                    color: Colors.black,
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.normal,
-                  ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Recent quizzes",
+                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: Colors.black,
+                        fontSize: 17.0,
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+              ],
             ),
             const SizedBox(
               height: 12.0,
             ),
-            const RecentQuizzesCard(
-              color: Color(0xFF00BFA6),
-              title: "Visual Communication",
-              assetPath: "assets/images/vc_img.png",
+            Expanded(
+              child: FutureBuilder<List<Quiz>>(
+                  future: DatabaseHelper.instance.getQuizzes(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) {
+                          return RecentQuizzesCard(
+                            color: _getRecentQuizCardColor(
+                                snapshot.data![index].title),
+                            title: snapshot.data![index].title,
+                            percent: snapshot.data![index].score,
+                            assetPath: snapshot.data![index].title ==
+                                    "Visual Communication"
+                                ? "assets/images/vc_img.png"
+                                : "assets/images/cm_img.png",
+                          );
+                        },
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text(snapshot.error.toString());
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }),
             )
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    DatabaseHelper.instance.closeDb();
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 }

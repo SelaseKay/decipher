@@ -8,8 +8,16 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
+
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -78,13 +86,20 @@ class SignInScreen extends StatelessWidget {
             ),
             AuthButton(
               text: "Sign-in",
+              isLoading: _isLoading,
               onPressed: () {
-                Navigator.pushReplacement(
+                setState(() {
+                  _isLoading = true;
+                });
+                Future.delayed(const Duration(seconds: 7), (){
+                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const MainContainer(),
                     ),
                   );
+                });
+               
               },
             ),
             const SizedBox(
