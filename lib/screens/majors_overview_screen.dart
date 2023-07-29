@@ -1,4 +1,5 @@
 import 'package:decipher/componenets/custom_tab.dart';
+import 'package:decipher/componenets/custom_video_player.dart';
 import 'package:decipher/dummy_data.dart';
 import 'package:flutter/material.dart';
 
@@ -110,11 +111,13 @@ class MajorsOverviewScreen extends StatelessWidget {
                 ListView(
                   padding: const EdgeInsets.only(bottom: 16.0),
                   children: [
-                    Text(
-                      majors[majorId].watch,
-                      style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                          fontWeight: FontWeight.w600, fontSize: 12.0),
-                    )
+                    
+                    CustomVideoPlayer(videoUrl: majors[majorId].watch)
+                    // Text(
+                    //   majors[majorId].watch,
+                    //   style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    //       fontWeight: FontWeight.w600, fontSize: 12.0),
+                    // )
                   ],
                 ),
               ],

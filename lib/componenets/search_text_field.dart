@@ -4,17 +4,20 @@ class SearchTextField extends StatelessWidget {
   const SearchTextField({
     super.key,
     required this.hint,
+    this.onChanged,
     this.iconColor = const Color(0xFF0E336A)
   });
 
   final String hint;
   final Color iconColor;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40.0,
       child: TextFormField(
+        onChanged: onChanged,
         style: Theme.of(context).textTheme.labelMedium?.copyWith(
               color: const Color(0xFF292929),
               fontWeight: FontWeight.normal,

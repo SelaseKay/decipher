@@ -19,7 +19,11 @@ class _InternshipScreenState extends State<InternshipScreen> {
   @override
   void initState() {
     super.initState();
+
   }
+
+  List<Company>? _internships;
+  List<Company>? _searchedInternships;
 
   final _controller = PageController();
 
@@ -29,6 +33,14 @@ class _InternshipScreenState extends State<InternshipScreen> {
   void dispose() {
     DatabaseHelper.instance.closeDb();
     super.dispose();
+  }
+
+   void _filterSearchResults(String query) {
+    setState(() {
+      _searchedInternships = _internships
+          ?.where((item) => item.name.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    });
   }
 
   @override
@@ -61,9 +73,12 @@ class _InternshipScreenState extends State<InternshipScreen> {
             const SizedBox(
               height: 20.0,
             ),
-            const SearchTextField(
+             SearchTextField(
               hint: "Search Company",
-              iconColor: Color(0xFF212121),
+              onChanged: (value){
+                _filterSearchResults(value);
+              },
+              iconColor: const Color(0xFF212121),
             ),
             const SizedBox(
               height: 20.0,
@@ -78,6 +93,8 @@ class _InternshipScreenState extends State<InternshipScreen> {
               onChanged: (value) {
                 setState(() {
                   filter = value;
+                  _internships = null;
+                  _searchedInternships = null;
                 });
               },
             ),
@@ -104,14 +121,19 @@ class _InternshipScreenState extends State<InternshipScreen> {
                             child: Text(snapshot.error.toString()),
                           );
                         } else if (snapshot.hasData) {
+                          if(_internships == null){
+                             _internships = snapshot.data!;
+                             _searchedInternships = _internships;
+                          }
+                           
                           return ListView.builder(
                             padding: const EdgeInsets.only(bottom: 16.0),
-                            itemCount: snapshot.data?.length,
+                            itemCount: _searchedInternships?.length,
                             itemBuilder: (context, index) {
                               return CompanyContainer(
-                                text: snapshot.data![index].name,
+                                text: _searchedInternships![index].name,
                                 isShortListed:
-                                    snapshot.data![index].isShortListed,
+                                    _searchedInternships![index].isShortListed,
                                 onShortlist: () async {
                                   if (snapshot.data![index].isShortListed) {
                                     await DatabaseHelper.instance.updateField(
@@ -144,6 +166,7 @@ class _InternshipScreenState extends State<InternshipScreen> {
                           );
                         }
                         if (snapshot.hasData) {
+                        
                           return ListView.builder(
                             padding: const EdgeInsets.only(bottom: 16.0),
                             itemCount: snapshot.data?.length,

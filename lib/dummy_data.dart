@@ -990,14 +990,16 @@ const List<NewsItem> newsItems = [
 ];
 
 const List<Major> majors = [
-  Major(title: "Advertising and Media"),
+  Major(title: "Advertising and Media", watch: "https://drive.google.com/file/d/1_Qx5brV4unNfVjF_Mm9INd-fNxXTePW7/view?usp=sharing"),
   Major(
     title: "Creative Multimedia",
     assetPath: "assets/images/major_overview_img2.png",
+    watch: "https://drive.google.com/u/0/uc?id=1H5eAS2MtYn_4fj2r43eEigFfRvuyi0Ce&export=download"
   ),
   Major(
     title: "Visual Communication",
     assetPath: "assets/images/major_overview_img3.png",
+    watch: "https://drive.google.com/file/d/1N7sZndDdZOZRagNZPAegEQMcReFiEKYa/view?usp=sharing"
   ),
 ];
 

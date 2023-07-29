@@ -240,7 +240,7 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Web Design",
               assetPath: "assets/images/career_path_img2.png",
               description:
-                  "Graphic design is a craft where professionals create visual content to communicate messages.",
+                  "A web designer is a professional responsible for creating visually appealing and functional websites. They...",
               onTap: () {
                 Navigator.push(
                   context,
