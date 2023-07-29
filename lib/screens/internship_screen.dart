@@ -19,15 +19,13 @@ class _InternshipScreenState extends State<InternshipScreen> {
   @override
   void initState() {
     super.initState();
-
   }
-
-  List<Company>? _internships;
-  List<Company>? _searchedInternships;
 
   final _controller = PageController();
 
   List<Company> shortlistedCompany = [];
+
+  String _searchQuery = "";
 
   @override
   void dispose() {
@@ -35,11 +33,9 @@ class _InternshipScreenState extends State<InternshipScreen> {
     super.dispose();
   }
 
-   void _filterSearchResults(String query) {
+  void _filterSearchResults(String query) {
     setState(() {
-      _searchedInternships = _internships
-          ?.where((item) => item.name.toLowerCase().contains(query.toLowerCase()))
-          .toList();
+      _searchQuery = query;
     });
   }
 
@@ -73,9 +69,9 @@ class _InternshipScreenState extends State<InternshipScreen> {
             const SizedBox(
               height: 20.0,
             ),
-             SearchTextField(
+            SearchTextField(
               hint: "Search Company",
-              onChanged: (value){
+              onChanged: (value) {
                 _filterSearchResults(value);
               },
               iconColor: const Color(0xFF212121),
@@ -93,8 +89,6 @@ class _InternshipScreenState extends State<InternshipScreen> {
               onChanged: (value) {
                 setState(() {
                   filter = value;
-                  _internships = null;
-                  _searchedInternships = null;
                 });
               },
             ),
@@ -109,7 +103,8 @@ class _InternshipScreenState extends State<InternshipScreen> {
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
                   FutureBuilder<List<Company>>(
-                      future: DatabaseHelper.instance.getCompanies(filter),
+                      future: DatabaseHelper.instance
+                          .getCompanies(filter, _searchQuery),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
@@ -121,52 +116,6 @@ class _InternshipScreenState extends State<InternshipScreen> {
                             child: Text(snapshot.error.toString()),
                           );
                         } else if (snapshot.hasData) {
-                          if(_internships == null){
-                             _internships = snapshot.data!;
-                             _searchedInternships = _internships;
-                          }
-                           
-                          return ListView.builder(
-                            padding: const EdgeInsets.only(bottom: 16.0),
-                            itemCount: _searchedInternships?.length,
-                            itemBuilder: (context, index) {
-                              return CompanyContainer(
-                                text: _searchedInternships![index].name,
-                                isShortListed:
-                                    _searchedInternships![index].isShortListed,
-                                onShortlist: () async {
-                                  if (snapshot.data![index].isShortListed) {
-                                    await DatabaseHelper.instance.updateField(
-                                      snapshot.data![index].name,
-                                      0,
-                                    );
-                                    setState(() {});
-                                  } else {
-                                    await DatabaseHelper.instance.updateField(
-                                      snapshot.data![index].name,
-                                      1,
-                                    );
-                                    setState(() {});
-                                    print(
-                                        "false block ${snapshot.data![index].isShortListed}");
-                                  }
-                                },
-                              );
-                            },
-                          );
-                        }
-                        return const SizedBox.shrink();
-                      }),
-                  FutureBuilder<List<Company>>(
-                      future: DatabaseHelper.instance.shortlistedCompanies,
-                      builder: (context, snapshot) {
-                        if (snapshot.hasError) {
-                          return Center(
-                            child: Text(snapshot.error.toString()),
-                          );
-                        }
-                        if (snapshot.hasData) {
-                        
                           return ListView.builder(
                             padding: const EdgeInsets.only(bottom: 16.0),
                             itemCount: snapshot.data?.length,
@@ -178,21 +127,60 @@ class _InternshipScreenState extends State<InternshipScreen> {
                                 onShortlist: () async {
                                   if (snapshot.data![index].isShortListed) {
                                     await DatabaseHelper.instance.updateField(
-                                        snapshot.data![index].name, 0);
-                                    setState(
-                                      () {},
+                                      snapshot.data![index].name,
+                                      0,
+                                    );
+                                  } else {
+                                    await DatabaseHelper.instance.updateField(
+                                      snapshot.data![index].name,
+                                      1,
                                     );
                                   }
+                                  setState(() {
+                                    
+                                  });
                                 },
                               );
                             },
                           );
                         }
-
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
+                        return const SizedBox.shrink();
                       }),
+                  FutureBuilder<List<Company>>(
+                    future: DatabaseHelper.instance.shortlistedCompanies,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: Text(snapshot.error.toString()),
+                        );
+                      }
+                      if (snapshot.hasData) {
+                        return ListView.builder(
+                          padding: const EdgeInsets.only(bottom: 16.0),
+                          itemCount: snapshot.data?.length,
+                          itemBuilder: (context, index) {
+                            return CompanyContainer(
+                              text: snapshot.data![index].name,
+                              isShortListed:
+                                  snapshot.data![index].isShortListed,
+                              onShortlist: () async {
+                                if (snapshot.data![index].isShortListed) {
+                                  await DatabaseHelper.instance.updateField(
+                                      snapshot.data![index].name, 0);
+                                }
+                                setState(() {
+                                  
+                                });
+                              },
+                            );
+                          },
+                        );
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    },
+                  ),
                 ],
               ),
             ))

@@ -5,8 +5,6 @@ import 'package:path/path.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:io';
 
-
-
 class DatabaseHelper {
   static Database? _database;
 
@@ -15,16 +13,13 @@ class DatabaseHelper {
 
   static final DatabaseHelper instance = DatabaseHelper._();
 
-  Future<Database> _initDatabase(
-      [String dbName = "companies.db"]) async {
+  Future<Database> _initDatabase([String dbName = "companies.db"]) async {
     final databasesPath = await getDatabasesPath();
     final path = join(databasesPath, dbName);
 
     // Check if the database already exists to avoid unnecessary copying
     if (await databaseExists(path)) {
-      return openDatabase(
-        path
-      );
+      return openDatabase(path);
     }
 
     // Copy the prepopulated database from assets to local storage
@@ -36,12 +31,13 @@ class DatabaseHelper {
     return openDatabase(path);
   }
 
-  Future<List<Company>> getCompanies(String filter) async {
+  Future<List<Company>> getCompanies(String filter,
+      [String searchQuery = ""]) async {
     _database ??= await _initDatabase();
 
     final List<Map<String, dynamic>> maps;
 
-    if (filter == "NONE") {
+    if (filter == "NONE" && searchQuery.isEmpty) {
       maps = await _database!.query('internship');
 
       return List.generate(
@@ -52,14 +48,27 @@ class DatabaseHelper {
           isShortListed: maps[index]["is_shortlisted"] == 0 ? false : true,
         ),
       );
+    } else if (filter == "NONE" && searchQuery.isNotEmpty) {
+      maps = await _database!.query('internship');
+      final companies = List.generate(
+        maps.length,
+        (index) => Company(
+          name: maps[index]["Company"],
+          region: maps[index]["Region"],
+          isShortListed: maps[index]["is_shortlisted"] == 0 ? false : true,
+        ),
+      );
+      return companies
+          .where((item) =>
+              item.name.toLowerCase().contains(searchQuery.toLowerCase()))
+          .toList();
     }
-
     maps = await _database!.query('internship',
         columns: ["Company", "Region", "is_shortlisted"],
         where: "Region = ?",
         whereArgs: [filter]);
 
-    return List.generate(
+    final companies = List.generate(
       maps.length,
       (index) => Company(
         name: maps[index]["Company"],
@@ -67,6 +76,11 @@ class DatabaseHelper {
         isShortListed: maps[index]["is_shortlisted"] == 0 ? false : true,
       ),
     );
+
+    return companies
+        .where((item) =>
+            item.name.toLowerCase().contains(searchQuery.toLowerCase()))
+        .toList();
   }
 
   Future<void> updateField(String company, int value) async {
@@ -116,7 +130,7 @@ class DatabaseHelper {
     return questions;
   }
 
-  closeDb() async{
+  closeDb() async {
     await _database?.close();
     _database = null;
   }
