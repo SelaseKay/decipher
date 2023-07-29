@@ -1,14 +1,27 @@
+import 'package:decipher/db/database_helper.dart';
 import 'package:decipher/screens/quiz_screen.dart';
 import 'package:decipher/string.dart';
 import 'package:flutter/material.dart';
 
-class QuizInstructionScreen extends StatelessWidget {
+class QuizInstructionScreen extends StatefulWidget {
   const QuizInstructionScreen({
     super.key,
     this.courseName = "Visual Communication",
   });
 
   final String courseName;
+
+  @override
+  State<QuizInstructionScreen> createState() => _QuizInstructionScreenState();
+}
+
+class _QuizInstructionScreenState extends State<QuizInstructionScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    DatabaseHelper.instance.closeDb();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +86,7 @@ class QuizInstructionScreen extends StatelessWidget {
                     ),
                     child: Center(
                       child: Text(
-                        "Course: $courseName",
+                        "Course: ${widget.courseName}",
                         style:
                             Theme.of(context).textTheme.labelMedium?.copyWith(
                                   color: Colors.white,
@@ -245,4 +258,5 @@ class QuizInstructionScreen extends StatelessWidget {
       ),
     );
   }
+
 }

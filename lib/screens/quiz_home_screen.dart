@@ -1,6 +1,8 @@
 import 'package:decipher/componenets/h_quiz_card.dart';
 import 'package:decipher/componenets/recent_quizzes_card.dart';
 import 'package:decipher/db/database_helper.dart';
+import 'package:decipher/db/recent_quizzes_db_helper.dart';
+import 'package:decipher/main.dart';
 import 'package:decipher/model/quiz.dart';
 import 'package:decipher/screens/quiz_instructions_screen.dart';
 import 'package:decipher/screens/quiz_screen.dart';
@@ -14,7 +16,7 @@ class QuizzesHomeScreen extends StatefulWidget {
 }
 
 class _QuizzesHomeScreenState extends State<QuizzesHomeScreen>
-    with WidgetsBindingObserver {
+    with RouteAware {
   Color _getRecentQuizCardColor(String course) {
     if (course == "Visual Communication") {
       return const Color(0xFF00BFA6);
@@ -26,19 +28,22 @@ class _QuizzesHomeScreenState extends State<QuizzesHomeScreen>
 
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      routeObserver.subscribe(this, ModalRoute.of(context)!);
+    });
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
   }
 
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.resumed:
-        setState(() {});
-        break;
-      default:
-    }
+   @override
+  void didPopNext() {
+   setState(() {
+      
+    });
+    super.didPopNext();
   }
+
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +168,7 @@ class _QuizzesHomeScreenState extends State<QuizzesHomeScreen>
                     color: const Color(0xFF00BFA6),
                     title: "Visual\nCommunication",
                     onPressed: () {
-                      DatabaseHelper.instance.closeDb();
+                     
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -180,7 +185,7 @@ class _QuizzesHomeScreenState extends State<QuizzesHomeScreen>
                     color: const Color(0xFF6C63FF),
                     title: "Creative\nMultimedia",
                     onPressed: () {
-                      DatabaseHelper.instance.closeDb();
+                    
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -199,7 +204,7 @@ class _QuizzesHomeScreenState extends State<QuizzesHomeScreen>
                     color: const Color(0xFFF9A826),
                     title: "Advertising\n& Media",
                     onPressed: () {
-                      DatabaseHelper.instance.closeDb();
+                     
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -236,7 +241,7 @@ class _QuizzesHomeScreenState extends State<QuizzesHomeScreen>
             ),
             Expanded(
               child: FutureBuilder<List<Quiz>>(
-                  future: DatabaseHelper.instance.getQuizzes(),
+                  future: RecentQuizDbHelper.instance.getQuizzes(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return ListView.builder(
@@ -271,7 +276,10 @@ class _QuizzesHomeScreenState extends State<QuizzesHomeScreen>
   @override
   void dispose() {
     DatabaseHelper.instance.closeDb();
-    WidgetsBinding.instance.removeObserver(this);
+    RecentQuizDbHelper.instance.closeDb();
+     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      routeObserver.unsubscribe(this);
+    });
     super.dispose();
   }
 }

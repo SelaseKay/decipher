@@ -3,7 +3,7 @@ import 'package:decipher/componenets/score_board.dart';
 import 'package:decipher/screens/quiz_screen.dart';
 import 'package:flutter/material.dart';
 
-class QuizResultScreen extends StatelessWidget {
+class QuizResultScreen extends StatefulWidget {
   const QuizResultScreen({
     super.key,
     required this.scores,
@@ -15,6 +15,11 @@ class QuizResultScreen extends StatelessWidget {
   final String course;
   final int totalQuestionNumber;
 
+  @override
+  State<QuizResultScreen> createState() => _QuizResultScreenState();
+}
+
+class _QuizResultScreenState extends State<QuizResultScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,8 +121,8 @@ class QuizResultScreen extends StatelessWidget {
                     height: 20.0,
                   ),
                   ScoreBoard(
-                    totalCorrectAnswers: scores,
-                    totalQuestions: totalQuestionNumber,
+                    totalCorrectAnswers: widget.scores,
+                    totalQuestions: widget.totalQuestionNumber,
                   ),
                   const SizedBox(
                     height: 40.0,
@@ -126,7 +131,7 @@ class QuizResultScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       AnswerCard(
-                        title: "$scores",
+                        title: "${widget.scores}",
                         subtitle: "correct answers",
                         color: const Color(0xFF00BFA6),
                       ),
@@ -134,7 +139,7 @@ class QuizResultScreen extends StatelessWidget {
                         width: 30.0,
                       ),
                       AnswerCard(
-                        title: "${totalQuestionNumber - scores}",
+                        title: "${widget.totalQuestionNumber - widget.scores}",
                         subtitle: "wrong answers",
                         color: const Color(0xFFF9A826),
                       )
@@ -161,7 +166,7 @@ class QuizResultScreen extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => QuizScreen(
-                                    course: course,
+                                    course: widget.course,
                                   ),
                                 ),
                               );

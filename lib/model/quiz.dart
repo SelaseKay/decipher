@@ -1,4 +1,4 @@
-const String tableName = 'recent_quiz';
+const String tableName = 'recent_quizzes';
 const String columnId = 'id';
 const String columnTitle = 'title';
 const String columnScore = 'score';

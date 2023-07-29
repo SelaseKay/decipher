@@ -1,6 +1,7 @@
 import 'package:decipher/componenets/progress_indicator.dart';
 import 'package:decipher/componenets/timer_text.dart';
 import 'package:decipher/db/database_helper.dart';
+import 'package:decipher/db/recent_quizzes_db_helper.dart';
 import 'package:decipher/model/question.dart';
 import 'package:decipher/model/quiz.dart';
 import 'package:decipher/screens/quiz_result_screen.dart';
@@ -213,8 +214,7 @@ class _QuizScreenState extends State<QuizScreen> {
                             if (_currentIndex + 1 == snapshot.data!.length) {
                               int totalScore = _scores
                                   .reduce((value, element) => value + element);
-                              await DatabaseHelper.instance.closeDb();
-                              await DatabaseHelper.instance.insertQuiz(Quiz(
+                              await RecentQuizDbHelper.instance.insertQuiz(Quiz(
                                   title: widget.course,
                                   score: totalScore / snapshot.data!.length));
                               if (context.mounted) {
@@ -258,11 +258,5 @@ class _QuizScreenState extends State<QuizScreen> {
             );
           }),
     );
-  }
-
-  @override
-  void dispose() {
-    DatabaseHelper.instance.closeDb();
-    super.dispose();
   }
 }

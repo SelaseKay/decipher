@@ -6,6 +6,8 @@ void main() {
   runApp(const MyApp());
 }
 
+final RouteObserver<ModalRoute> routeObserver = RouteObserver<ModalRoute>();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -15,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      navigatorObservers: [routeObserver],
       theme: ThemeData(
         // This is the theme of your application.
         //

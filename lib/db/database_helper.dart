@@ -1,10 +1,11 @@
 import 'package:decipher/model/company.dart';
 import 'package:decipher/model/question.dart';
-import 'package:decipher/model/quiz.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:io';
+
+
 
 class DatabaseHelper {
   static Database? _database;
@@ -15,21 +16,14 @@ class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._();
 
   Future<Database> _initDatabase(
-      [String dbName = "companies.db",
-      Function(Database, int)? onCreate]) async {
+      [String dbName = "companies.db"]) async {
     final databasesPath = await getDatabasesPath();
     final path = join(databasesPath, dbName);
 
-
-    final exists = await databaseExists(path);
-    print("Does db exist: $exists");
     // Check if the database already exists to avoid unnecessary copying
-    if (await databaseExists(path) || onCreate != null) {
-      print("database already exists");
+    if (await databaseExists(path)) {
       return openDatabase(
-        path,
-        onCreate: onCreate,
-        version: onCreate == null ? null : 1,
+        path
       );
     }
 
@@ -122,64 +116,8 @@ class DatabaseHelper {
     return questions;
   }
 
-  Future<Quiz> insertQuiz(Quiz quiz) async {
-    const tableName = "recent_quizzes";
-    _database ??=
-        await _initDatabase("recent_quizzes_database.db", (db, version) async {
-      try {
-        await db.execute('''
-CREATE TABLE $tableName ( 
-  $columnId INTEGER PRIMARY KEY autoincrement, 
-  $columnTitle TEXT,
-  $columnScore REAL)
-''');
-      } catch (e) {
-        print("Database error: ${e.toString()}");
-      }
-    });
-    await _database?.insert(tableName, quiz.toMap());
-    return quiz;
-  }
-
-  Future<List<Quiz>> getQuizzes() async {
-    const tableName = "recent_quizzes";
-    _database ??=
-        await _initDatabase("recent_quizzes_database.db", (db, version) async {
-      print("recentQuiz.db has been created");
-
-      try {
-        await db.execute('''
-CREATE TABLE $tableName ( 
-  $columnId INTEGER PRIMARY KEY autoincrement, 
-  $columnTitle TEXT,
-  $columnScore REAL)
-''');
-      } catch (e) {
-        print("Database error: ${e.toString()}");
-      }
-
-      print("recentQuiz.db has been created.........");
-    });
-
-    print("Database path: ${_database?.path}");
-
-    print("Select query started.........");
-    final List<Map<String, dynamic>> maps = await _database!.query(tableName);
-    print("Select query stopped.........");
-
-    final List<Quiz> recentQuizzes = List.generate(
-      maps.length,
-      (index) => Quiz(
-        id: maps[index]["id"],
-        title: maps[index]["title"],
-        score: maps[index]["score"],
-      ),
-    );
-    return recentQuizzes;
-  }
-
-  closeDb(){
-    _database?.close();
+  closeDb() async{
+    await _database?.close();
     _database = null;
   }
 }
