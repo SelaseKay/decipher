@@ -1,4 +1,5 @@
 import 'package:decipher/componenets/settings_card.dart';
+import 'package:decipher/screens/about_us_screen.dart';
 import 'package:decipher/screens/change_password_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,6 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-
   bool _switchValue1 = false;
   bool _switchValue2 = false;
 
@@ -60,20 +60,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
             prefix: Icons.lock_outline,
             text: "Change password",
             onPressed: () {
-               Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ChangePasswordScreen(),
-                      ),
-                    );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ChangePasswordScreen(),
+                ),
+              );
             },
           ),
           const SizedBox(
             height: 32.0,
           ),
-          const SettingsCard(
+          SettingsCard(
             prefix: Icons.person_outline,
             text: "About",
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AboutUsScreen(),
+                ),
+              );
+            },
           ),
           const SizedBox(
             height: 32.0,
@@ -112,7 +120,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               },
             ),
           ),
-           const SizedBox(
+          const SizedBox(
             height: 16.0,
           ),
           SettingsCard(

@@ -1,5 +1,6 @@
 import 'package:decipher/componenets/settings_button.dart';
 import 'package:decipher/componenets/settings_button_container.dart';
+import 'package:decipher/screens/majors_screen.dart';
 import 'package:decipher/screens/meet_team_screen.dart';
 import 'package:decipher/screens/quiz_home_screen.dart';
 import 'package:decipher/screens/settings_screen.dart';
@@ -72,7 +73,14 @@ class ProfileScreen extends StatelessWidget {
               SettingsButton(
                   assetPath: "assets/images/content_icon.svg",
                   text: "Content",
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MajorsScreen(),
+                      ),
+                    );
+                  }),
               const SizedBox(
                 height: 8.0,
               ),
@@ -94,7 +102,7 @@ class ProfileScreen extends StatelessWidget {
                   assetPath: "assets/images/meet_team_icon.svg",
                   text: "Meet the Team",
                   onPressed: () {
-                     Navigator.push(
+                    Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const MeetTeamScreen(),
