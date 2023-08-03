@@ -114,7 +114,8 @@ class MajorsOverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 16.0),
                   children: [
                     
-                    CustomVideoPlayer(videoUrl: majors[majorId].watch)
+                    CustomVideoPlayer(videoUrl: majors[majorId].watch),
+                    const SizedBox(height: 50.0,),
                     // Text(
                     //   majors[majorId].watch,
                     //   style: Theme.of(context).textTheme.labelSmall?.copyWith(

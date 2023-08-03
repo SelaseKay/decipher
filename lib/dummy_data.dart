@@ -167,9 +167,7 @@ Book designers may be skilled in using design software such as Adobe InDesign, I
 7. Printing and Production Tools: Book designers coordinate with printing and production teams. Software such as Adobe InDesign or specialized prepress software provides options for specifying print parameters, color profiles, and ensuring accurate output during the printing process.
 ''',
     ),
-
-
-     Career(
+    Career(
       title: "Photography",
       assetPath: "assets/images/career_path_img8.png",
       overview:
@@ -239,7 +237,6 @@ In addition to writing skills, copywriters possess a strong understanding of mar
 7. Communication and Collaboration Tools: Copywriters use communication and collaboration tools like email, messaging apps (Slack, Microsoft Teams), and video conferencing platforms (Zoom, Google Meet) to communicate with clients, collaborate with team members, and receive feedback on their work.
 ''',
     ),
-   
     Career(
       title: "Sales & Marketing",
       assetPath: "assets/images/ads_and_media_img2.png",
@@ -990,17 +987,19 @@ const List<NewsItem> newsItems = [
 ];
 
 const List<Major> majors = [
-  Major(title: "Advertising and Media", watch: "https://drive.google.com/file/d/1_Qx5brV4unNfVjF_Mm9INd-fNxXTePW7/view?usp=sharing"),
   Major(
-    title: "Creative Multimedia",
-    assetPath: "assets/images/major_overview_img2.png",
-    watch: "https://drive.google.com/u/0/uc?id=1H5eAS2MtYn_4fj2r43eEigFfRvuyi0Ce&export=download"
+    title: "Advertising and Media",
+    watch: "yLvQ3uBGE8M",
   ),
   Major(
-    title: "Visual Communication",
-    assetPath: "assets/images/major_overview_img3.png",
-    watch: "https://drive.google.com/file/d/1N7sZndDdZOZRagNZPAegEQMcReFiEKYa/view?usp=sharing"
-  ),
+      title: "Creative Multimedia",
+      assetPath: "assets/images/major_overview_img2.png",
+      watch: "vYE4tneuXVc"),
+  Major(
+      title: "Visual Communication",
+      assetPath: "assets/images/major_overview_img3.png",
+      watch:
+          "XlzPdnEkv6w"),
 ];
 
 List<Question> questions = [
