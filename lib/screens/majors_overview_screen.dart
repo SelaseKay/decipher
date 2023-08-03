@@ -8,10 +8,12 @@ class MajorsOverviewScreen extends StatelessWidget {
     super.key,
     required this.majorId,
     required this.tabButtonColor,
+    required this.appBarTitle,
   });
 
   final Color tabButtonColor;
   final int majorId;
+  final String appBarTitle;
 
   final _controller = PageController();
 
@@ -24,7 +26,7 @@ class MajorsOverviewScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Visual Communication",
+          appBarTitle,
           style: Theme.of(context).textTheme.labelLarge,
         ),
         leading: IconButton(

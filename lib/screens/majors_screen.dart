@@ -45,6 +45,7 @@ class MajorsScreen extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => MajorsOverviewScreen(
                       majorId: 0,
+                      appBarTitle: "Advertising  and Media",
                       tabButtonColor: const Color(0xFF6C63FF),
                     ),
                   ),
@@ -65,6 +66,7 @@ class MajorsScreen extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => MajorsOverviewScreen(
                       majorId: 1,
+                      appBarTitle: "Creative Multimedia",
                       tabButtonColor: const Color(0xFFF9A826),
                     ),
                   ),
@@ -85,6 +87,7 @@ class MajorsScreen extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => MajorsOverviewScreen(
                       majorId: 2,
+                      appBarTitle: "Visual Communication",
                       tabButtonColor: const Color(0xFF00BFA6),
                     ),
                   ),
