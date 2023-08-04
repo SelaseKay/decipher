@@ -2,6 +2,7 @@ import 'package:decipher/componenets/custom_stepper.dart';
 import 'package:decipher/screens/onboarding/onboarding_child.dart';
 import 'package:decipher/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainOnboardingScreen extends StatefulWidget {
   const MainOnboardingScreen({super.key});
@@ -14,6 +15,19 @@ class _MainOnboardingScreenState extends State<MainOnboardingScreen> {
   final _controller = PageController();
 
   int _currentIndex = 0;
+
+  late final SharedPreferences _prefs;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _getSharedPreferenceInstance();
+  }
+
+  _getSharedPreferenceInstance() async{
+    _prefs = await SharedPreferences.getInstance();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +47,8 @@ class _MainOnboardingScreenState extends State<MainOnboardingScreen> {
             child: SizedBox(
               width: 50.0,
               child: InkWell(
-                onTap: () {
+                onTap: () async {
+                  await _prefs.setBool("has_onboarded", true);
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
@@ -110,6 +125,7 @@ class _MainOnboardingScreenState extends State<MainOnboardingScreen> {
                   ),
                   onPressed: () async {
                     if (_currentIndex == 3) {
+                        await _prefs.setBool("has_onboarded", true);
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(

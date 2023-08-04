@@ -240,7 +240,7 @@ class _QuizScreenState extends State<QuizScreen> {
                             });
                           },
                           child: Text(
-                            "Next",
+                            _currentIndex + 1 == snapshot.data!.length ? "Submit" : "Next",
                             style: Theme.of(context)
                                 .textTheme
                                 .labelMedium

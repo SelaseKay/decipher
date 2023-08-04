@@ -1,24 +1,42 @@
 import 'package:decipher/screens/onboarding/main_onboarding_screen.dart';
+import 'package:decipher/screens/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 final RouteObserver<ModalRoute> routeObserver = RouteObserver<ModalRoute>();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late final Future<SharedPreferences> _prefs;
+  late final bool? _hasOnboarded;
+
+  @override
+  void initState() {
+    super.initState();
+    _prefs = SharedPreferences.getInstance();
+  }
+
+  // This widget is the root of your application.
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-        DeviceOrientation.portraitDown,
-      ]);
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
@@ -77,7 +95,23 @@ class MyApp extends StatelessWidget {
         cardColor: const Color(0XFFD9D9D9),
         useMaterial3: true,
       ),
-      home: const MainOnboardingScreen(),
+      home: FutureBuilder<SharedPreferences>(
+          future: _prefs,
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              return Scaffold(
+                  body: Center(child: Text(snapshot.error.toString())));
+            } else if (snapshot.hasData) {
+              return snapshot.data?.getBool("has_onboarded") == null
+                  ? const MainOnboardingScreen()
+                  : const SignInScreen();
+            }
+            return Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          }),
     );
   }
 }
