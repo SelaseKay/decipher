@@ -20,7 +20,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late final Future<SharedPreferences> _prefs;
-  late final bool? _hasOnboarded;
 
   @override
   void initState() {
