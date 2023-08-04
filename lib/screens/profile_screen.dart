@@ -4,6 +4,7 @@ import 'package:decipher/screens/majors_screen.dart';
 import 'package:decipher/screens/meet_team_screen.dart';
 import 'package:decipher/screens/quiz_home_screen.dart';
 import 'package:decipher/screens/settings_screen.dart';
+import 'package:decipher/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -219,7 +220,16 @@ class ProfileScreen extends StatelessWidget {
                                                   BorderRadius.circular(10),
                                             ),
                                           ),
-                                          onPressed: () {},
+                                          onPressed: () {
+                                            Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const SignUpScreen(),
+                                              ),
+                                              (Route<dynamic> route) => false,
+                                            );
+                                          },
                                           child: Text(
                                             "Logout",
                                             style: Theme.of(context)

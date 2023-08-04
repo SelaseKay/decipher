@@ -999,7 +999,7 @@ const List<Major> majors = [
       title: "Visual Communication",
       assetPath: "assets/images/major_overview_img3.png",
       watch:
-          "XlzPdnEkv6w"),
+          "XlzPdnEkv6w",),
 ];
 
 List<Question> questions = [
