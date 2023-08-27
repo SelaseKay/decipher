@@ -20,6 +20,7 @@ class TaskScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
                 height: 48.0,
@@ -67,6 +68,7 @@ class TaskScreen extends StatelessWidget {
               EventCard(
                 key: _eventCardKey1,
                 cardHeight: cardHeight,
+                imgPath: 'assets/images/task_img_1.png',
                 title: "Time Table",
                 subTitle: "Upload your class timetable",
                 date: "21/05/2023",
@@ -77,6 +79,7 @@ class TaskScreen extends StatelessWidget {
               EventCard(
                 key: _eventCardKey2,
                 cardHeight: cardHeight,
+                 imgPath: 'assets/images/task_img_2.png',
                 title: "Examination",
                 subTitle: "There is no Examination today",
                 date: "21/05/2023",

@@ -1,5 +1,7 @@
 import 'package:decipher/string.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -22,7 +24,9 @@ class WelcomeScreen extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView(
-        padding: const EdgeInsets.only(bottom: 16.0,),
+        padding: const EdgeInsets.only(
+          bottom: 16.0,
+        ),
         children: [
           SizedBox(
             height: imageHeight,
@@ -55,10 +59,40 @@ class WelcomeScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: 32.0,
             ),
-            child: Text(
-              welcomeDescription,
-              textAlign: TextAlign.justify,
-              style: Theme.of(context).textTheme.labelSmall,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  welcomeDescription,
+                  textAlign: TextAlign.justify,
+                  style: Theme.of(context).textTheme.labelSmall,
+                ),
+                SizedBox(
+                  height: 8.0,
+                ),
+                RichText(
+                  textAlign: TextAlign.left,
+                  text: TextSpan(
+                    style: Theme.of(context).textTheme.labelSmall,
+                    children: <TextSpan>[
+                      TextSpan(
+                        text:
+                            "Visit the department website for more information ",
+                      ),
+                      TextSpan(
+                          text: 'https://decode.knust.edu.gh',
+                          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                            color: Colors.blue
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () async {
+                              await launchUrl(
+                                  Uri.parse('https://decode.knust.edu.gh'));
+                            }),
+                    ],
+                  ),
+                ),
+              ],
             ),
           )
         ],

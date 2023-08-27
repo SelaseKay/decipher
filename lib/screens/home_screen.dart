@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Welcome back,",
+              "Welcome back!",
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontSize: 24.0,
                     color: Theme.of(context).primaryColor,
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
             ),
             Text(
-              "Edna!",
+              "Edna",
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   );
                 },
-                text: "Options",
+                text: "Course Option",
               ),
               const SizedBox(
                 width: 14.0,
@@ -180,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 },
                 color: const Color(0xFF00BFA6),
-                text: "Career Path",
+                text: "Career Pathway",
               ),
               const SizedBox(width: 14.0,),
               CategoryItem(

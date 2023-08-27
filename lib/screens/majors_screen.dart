@@ -11,7 +11,7 @@ class MajorsScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Options",
+          "Course Option",
           style: Theme.of(context).textTheme.labelLarge,
         ),
         leading: IconButton(

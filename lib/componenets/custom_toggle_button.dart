@@ -71,7 +71,7 @@ class _CustomToggleButtonState extends State<CustomToggleButton> {
                 });
               },
               child: Text(
-                "Filtered",
+                "Favorite",
                 style: Theme.of(context).textTheme.labelMedium?.copyWith(
                       color: _isButton2Selected
                           ? Theme.of(context).primaryColor

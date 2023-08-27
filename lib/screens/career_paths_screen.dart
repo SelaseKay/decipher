@@ -18,7 +18,7 @@ class CareerPathsScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          "Career paths",
+          "Career pathway",
           style: Theme.of(context).textTheme.labelLarge,
         ),
         leading: IconButton(
