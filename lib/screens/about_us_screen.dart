@@ -51,11 +51,20 @@ detailed information.''',
           ),
           _AboutUsContainer(
             title: "Developer",
-            description: '''CHADES - Students of Kwame Nkrumah University of 
+            description: '''Jude Kwashie - Mobile App Developer
+CHADES - Students of Kwame Nkrumah University of 
 Science and Technology.
 Department of Communication Design.''',
           ),
-          const SizedBox(
+           const SizedBox(
+            height: 28.0,
+          ),
+           _AboutUsContainer(
+            title: "Project (August 2023)",
+            description: '''Project submitted in the partial fulfillment for the degree
+Bachelor of Arts (Communication Design)''',
+          ),
+           const SizedBox(
             height: 31.0,
           ),
         ],
